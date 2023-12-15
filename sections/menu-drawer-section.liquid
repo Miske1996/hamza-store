@@ -1,0 +1,192 @@
+{{ 'menu-drawer-section.css' | asset_url | stylesheet_tag }}
+<menu-drawer>
+  <div class="menu_drawer_section_container">
+    <div class="drawer_menu_inner">
+      <div class="close_icon_container">
+        <img src="{{ 'close_icon.png' |  asset_url }}" alt="">
+      </div>
+      <div class="main_links_container">
+        {% for link in linklists['left_menu'].links %}
+          <div
+            class="nav_drawer_main_link"
+            {% if forloop.index == 1 %}
+            style
+            ="margin-bottom:20px;"
+            {% endif %}>
+            {% if link.levels > 0 %}
+              <div class="inner_link inner_link_subtree">
+                <span class="main_title_link_span">{{ link.title }}</span><img
+                  class="arrow_img"
+                  src="{{ 'right-arrow.png' |  asset_url }}"
+                  alt="">
+              </div>
+              <div class="submenu_container">
+                {% for sub_link in link.links %}
+                  <div class="sub_link_parent_1">
+                    <span class="sub_link_parent_1_span">{{ sub_link.title }}</span>
+                    {% for sub_link2 in sub_link.links %}
+                      <a class="sub_link2_link" href="{{ sub_link2.url }}">{{ sub_link2.title }}</a>
+                    {% endfor %}
+                  </div>
+                {% endfor %}
+                {% assign collection_name = link.title %}
+                {% assign collection_title = collections[collection_name].metafields.custom.text_collection_title %}
+                {% assign collection_img = collections[collection_name].metafields.custom.image_collection %}
+                {% assign collection_url = collections[collection_name].url %}
+                <div class="collection_menu">
+                  <img
+                    src="{{ collection_img |  file_url }}"
+                    alt=""
+                    class="bg_img">
+                  <a href="{{ collection_url }}" class="go_to_collection_container">
+                    <span>{{ collection_title }}</span>
+                    <img
+                      src="{{ 'arrow_right.png' |  asset_url }}"
+                      alt=""
+                      class="img_arrow">
+                  </a>
+                </div>
+
+              </div>
+            {% else %}
+              {% if forloop.index == 1 %}
+                <div class="inner_link">
+                  <span class="main_title_link_span">{{ link.title }}</span>
+                </div>
+              {% else %}
+                <div class="inner_link">
+                  <span class="main_title_link_span">{{ link.title }}</span>
+                </div>
+              {% endif %}
+
+            {% endif %}
+          </div>
+        {% endfor %}
+        {% for link in linklists['drawer_menu_1'].links %}
+          <div
+            class="nav_drawer_main_link"
+            {% if collections[link.title].metafields.custom.text_collection_title == null and link.levels > 0 %}
+            style="max-height: 180px;"
+            {% endif %}
+            {% if forloop.index == linklists['drawer_menu_1'].links.size %}
+            style
+            ="margin-top:18px;"
+            {% endif %}>
+            {% if link.levels > 0 %}
+              <div class="inner_link inner_link_subtree">
+                <span class="main_title_link_span">{{ link.title }}</span><img
+                  class="arrow_img"
+                  src="{{ 'right-arrow.png' |  asset_url }}"
+                  alt="">
+              </div>
+              <div class="submenu_container">
+                {% for sub_link in link.links %}
+                  <div class="sub_link_parent_1">
+                    <span class="sub_link_parent_1_span">{{ sub_link.title }}</span>
+                    {% for sub_link2 in sub_link.links %}
+                      <a class="sub_link2_link" href="{{ sub_link2.url }}">{{ sub_link2.title }}</a>
+                    {% endfor %}
+                  </div>
+                {% endfor %}
+                {% assign collection_name = link.title %}
+                {% assign collection_title = collections[collection_name].metafields.custom.text_collection_title %}
+                {% assign collection_img = collections[collection_name].metafields.custom.image_collection %}
+                {% assign collection_url = collections[collection_name].url %}
+                {% if collection_title != null %}
+                  <div class="collection_menu">
+                    <img
+                      src="{{ collection_img |  file_url }}"
+                      alt=""
+                      class="bg_img">
+                    <a href="{{ collection_url }}" class="go_to_collection_container">
+                      <span>{{ collection_title }}</span>
+                      <img
+                        src="{{ 'arrow_right.png' |  asset_url }}"
+                        alt=""
+                        class="img_arrow">
+                    </a>
+                  </div>
+                {% endif %}
+
+              </div>
+            {% else %}
+              {% if forloop.last %}
+                <div class="inner_link">
+                  <span class="main_title_link_span">{{ link.title }}</span>
+                </div>
+              {% else %}
+                <div class="inner_link">
+                  <span class="main_title_link_span">{{ link.title }}</span>
+                </div>
+              {% endif %}
+
+            {% endif %}
+          </div>
+        {% endfor %}
+        {% for link in linklists['drawer_menu_2'].links %}
+
+          {% if forloop.index == 1 %}
+            <a
+              class="drawr_menu_2_link"
+              style="margin-top: 18px;"
+              href="{{ link.url }}">
+              <img src="{{ 'Pine-1.png' |  asset_url }}" alt="">
+              <span class="drawr_menu_2_link_span">{{ link.title }}</span>
+            </a>
+          {% endif %}
+
+          {% if forloop.index == 2 %}
+            <a class="drawr_menu_2_link" href="{{ link.url }}">
+              <img src="{{ 'Mail-1.png' |  asset_url }}" alt="">
+              <span class="drawr_menu_2_link_span">{{ link.title }}</span>
+            </a>
+          {% endif %}
+
+          {% if forloop.index == 3 %}
+            <a class="drawr_menu_2_link" href="{{ link.url }}">
+              <img src="{{ 'Gift.png' |  asset_url }}" alt="">
+              <span class="drawr_menu_2_link_span">{{ link.title }}</span>
+            </a>
+          {% endif %}
+
+          {% if forloop.index == 4 %}
+            <a class="drawr_menu_2_link" href="{{ link.url }}">
+              <img src="{{ 'Account-1.png' |  asset_url }}" alt="">
+              <span class="drawr_menu_2_link_span">{{ link.title }}</span>
+            </a>
+          {% endif %}
+
+          {% if forloop.index == 5 %}
+            <a
+              class="drawr_menu_2_link"
+              href="{{ link.url }}"
+              style="margin-bottom: 22px;">
+              <img src="{{ 'Heart.png' |  asset_url }}" alt="">
+              <span class="drawr_menu_2_link_span">{{ link.title }}</span>
+            </a>
+          {% endif %}
+
+        {% endfor %}
+
+        {% for link in linklists['drawer_menu_3'].links %}
+          {% if forloop.index == 1 %}
+            <a
+              class="drawr_menu_3_link"
+              style="margin-top: 18px;"
+              href="{{ link.url }}">
+              <span class="drawr_menu_3_link_span">{{ link.title }}</span>
+            </a>
+          {% else %}
+            <a class="drawr_menu_3_link" href="{{ link.url }}">
+              <span class="drawr_menu_3_link_span">{{ link.title }}</span>
+            </a>
+          {% endif %}
+
+
+        {% endfor %}
+      </div>
+    </div>
+    <div class="drawer_menu_overlay">.</div>
+  </div>
+</menu-drawer>
+{{ 'menu-drawer.js' |  asset_url |  script_tag }}

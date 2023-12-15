@@ -1,0 +1,66 @@
+{{ 'header.css' |  asset_url |  stylesheet_tag }}
+<sticky-header>
+    <header
+    id="site-header"
+    style="padding-left: 20px;padding-right: 20px;"
+    class="section-header">
+
+      <div class="left_menu_header_container">
+        <div class="more_button_container">
+          <img src="{{ 'more.png' |  asset_url }}" alt="" class="more_button"> 
+          <img src="{{ 'more_dark.png' |  asset_url }}" alt="" class="more_button dark"> 
+        </div>
+
+        <div class="search_button_container">
+          <img src="{{ 'search.png' |  asset_url }}" alt="" class="search_button"> 
+          <img src="{{ 'search_dark.png' |  asset_url }}" alt="" class="search_button dark"> 
+        </div>
+        {% for link in linklists['left_menu'].links %}
+          {% if forloop.index == 1 %}
+            <a style="background-color:#152F4E;" href="{{ link.url }}" class="menu_title_link">{{ link.title }}</a>
+          {% else %}
+            <span class="menu_title_link link_item">{{ link.title }}</span>
+          {% endif %}  
+        {% endfor %}    
+      </div>
+
+
+      <div class="logo_header_container">
+        <a href="{{ routes.root_url }}"><img src="{{ 'medium_ANmrhpasAl.webp' |  file_url }}" alt=""></a>
+      </div>
+
+
+      <div class="right_menu_header_container">  
+        {% for link in linklists['right_menu'].links %}    
+          {% if forloop.index == 3 %}
+            <a href="{{ link.url }}" class="menu_title_link link_item">
+            <div class="img_location">
+              <img src="{{ 'pin.png' |  asset_url }}" alt="" class="location_button"> 
+              <img src="{{ 'pin_dark.png' |  asset_url }}" alt="" class="location_button dark"> 
+            </div>
+             <span>
+              {{ link.title }}
+             </span>
+             </a>      
+          {% elsif forloop.index == 1 %}
+            <a style="margin-left:auto;" href="{{ link.url }}" class="menu_title_link link_item">{{ link.title }}</a>
+          {% else %}
+            <a href="{{ link.url }}" class="menu_title_link link_item">{{ link.title }}</a>
+          {% endif %}  
+        {% endfor %}
+
+        <div class="img_user">
+          <img src="{{ 'user.png' |  asset_url }}" alt="" class="user_button"> 
+          <img src="{{ 'user_dark.png' |  asset_url }}" alt="" class="user_button dark"> 
+        </div>
+
+        <div class="img_bag">
+          <img src="{{ 'bag.png' |  asset_url }}" alt="" class="bag_button"> 
+          <img src="{{ 'bag_dark.png' |  asset_url }}" alt="" class="bag_button dark"> 
+        </div>
+      </div>
+    
+  </header>
+</sticky-header>
+
+{{ 'header.js' |  asset_url|  script_tag }}

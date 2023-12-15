@@ -1,0 +1,38 @@
+body,
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100vw;
+  font-family: "Assistant";
+  font-weight: 500;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@font-face {
+  font-family: "Assistant";
+  src: url("Assistant-Bold.ttf");
+  font-weight: 700;
+}
+@font-face {
+  font-family: "Assistant";
+  src: url("Assistant-Medium.ttf");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Assistant";
+  src: url("Assistant-Regular.ttf");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Assistant";
+  src: url("Assistant-Light.ttf");
+  font-weight: 400;
+}
