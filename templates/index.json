@@ -11,13 +11,17 @@
     },
     "featuredOn":{
       "type": "featured-on-section"
+    },
+    "collectionListFilter":{
+      "type": "collection-list-filter-section"
     }
-   
+    
   },
   "order": [
    "main",
    "collection-scroll",
    "badges",
-   "featuredOn"
+   "featuredOn",
+   "collectionListFilter"
   ]
 }
