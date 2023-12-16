@@ -5,11 +5,15 @@
     },
     "collection-scroll":{
       "type": "collection-scroll-section"
+    },
+    "badges":{
+      "type": "badges-section"
     }
    
   },
   "order": [
    "main",
-   "collection-scroll"
+   "collection-scroll",
+   "badges"
   ]
 }
