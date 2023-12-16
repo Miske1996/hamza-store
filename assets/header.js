@@ -16,9 +16,13 @@ class StickyHeader extends HTMLElement {
     //   this.setHeaderHeight();
       
     //   window.matchMedia('(max-width: 990px)').addEventListener('change', this.setHeaderHeight.bind(this));
-
+      
       if (this.headerIsAlwaysSticky) {
+        document.documentElement.style.setProperty('--header-height', `${
+        this.header.offsetHeight
+      }px`);
         this.header.classList.add('shopify-section-header-sticky');
+        document.querySelector("#shopify-section-header-section").classList.add("shopify-section-header-sticky")
       };
 
       this.currentScrollTop = 0;
@@ -29,6 +33,30 @@ class StickyHeader extends HTMLElement {
 
       this.addEventListener('preventHeaderReveal', this.hideHeaderOnScrollUp);
       window.addEventListener('scroll', this.onScrollHandler, false);
+      
+      if(window.matchMedia('(max-width: 1024px)').matches) {
+        this.image_more_header[0].style.display = "none"
+        this.image_more_header[1].style.display = "block"
+
+        this.image_search_header[0].style.display = "none"
+        this.image_search_header[1].style.display = "block"
+
+        this.img_location[0].style.display = "none"
+        this.img_location[1].style.display = "block"
+
+        this.img_user[0].style.display = "none"
+        this.img_user[1].style.display = "block"
+
+        this.img_bag[0].style.display = "none"
+        this.img_bag[1].style.display = "block"
+
+        this.link_items.forEach((link_i) => { 
+          link_i.style.color = "#152F4E"
+        })
+        document.querySelector("#shopify-section-header-section").style.backgroundColor = "white";
+
+        document.querySelector("#shopify-section-header-section").classList.add('scrolled-past-header');
+      }
 
       this.createObserver();
     }
@@ -56,9 +84,7 @@ class StickyHeader extends HTMLElement {
 
     onScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-
-    
-      
+      if(!window.matchMedia('(max-width: 1024px)').matches){ 
 
       if (scrollTop > this.currentScrollTop && scrollTop > this.headerBounds.bottom) {
         this.image_more_header[0].style.display = "none"
@@ -79,8 +105,9 @@ class StickyHeader extends HTMLElement {
         this.link_items.forEach((link_i) => { 
           link_i.style.color = "#152F4E"
         })
+        document.querySelector("#shopify-section-header-section").style.backgroundColor = "white";
 
-        this.header.classList.add('scrolled-past-header');
+        document.querySelector("#shopify-section-header-section").classList.add('scrolled-past-header');
         if (this.preventHide) return;
         
         requestAnimationFrame(this.hide.bind(this)); 
@@ -106,6 +133,8 @@ class StickyHeader extends HTMLElement {
         })
 
         this.header.classList.add('scrolled-past-header');
+        document.querySelector("#shopify-section-header-section").style.backgroundColor = "white";
+
         if (!this.preventReveal) {
           requestAnimationFrame(this.reveal.bind(this));
         } else {
@@ -136,11 +165,34 @@ class StickyHeader extends HTMLElement {
         this.link_items.forEach((link_i) => {
           link_i.style.color = "white"
         })
+        document.querySelector("#shopify-section-header-section").style.backgroundColor = "transparent";
 
         this.header.classList.remove('scrolled-past-header');
         requestAnimationFrame(this.reset.bind(this));
       }
+        }else{
+            this.image_more_header[0].style.display = "none"
+        this.image_more_header[1].style.display = "block"
 
+        this.image_search_header[0].style.display = "none"
+        this.image_search_header[1].style.display = "block"
+
+        this.img_location[0].style.display = "none"
+        this.img_location[1].style.display = "block"
+
+        this.img_user[0].style.display = "none"
+        this.img_user[1].style.display = "block"
+
+        this.img_bag[0].style.display = "none"
+        this.img_bag[1].style.display = "block"
+
+        this.link_items.forEach((link_i) => { 
+          link_i.style.color = "#152F4E"
+        })
+        document.querySelector("#shopify-section-header-section").style.backgroundColor = "white";
+
+        document.querySelector("#shopify-section-header-section").classList.add('scrolled-past-header');
+        }
       this.currentScrollTop = scrollTop;
     }
 

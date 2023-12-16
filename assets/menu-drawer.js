@@ -15,7 +15,7 @@ class MenuDrawer extends HTMLElement {
         document.addEventListener("DOMContentLoaded",  () => {
             let links = document.querySelectorAll(".left_menu_header_container .link_item")
             let more_button = document.querySelectorAll(".left_menu_header_container .more_button")
-            c
+            
             links.forEach((link) => {
                 link.addEventListener('click', () => {
                     console.log("clicked ")

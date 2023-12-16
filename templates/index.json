@@ -1,10 +1,15 @@
 {
   "sections": {
     "main":{
-      "type": "section-tmp"
+      "type": "hero-section"
+    },
+    "collection-scroll":{
+      "type": "collection-scroll-section"
     }
+   
   },
   "order": [
-   "main"
+   "main",
+   "collection-scroll"
   ]
 }
