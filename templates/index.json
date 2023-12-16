@@ -8,12 +8,16 @@
     },
     "badges":{
       "type": "badges-section"
+    },
+    "featuredOn":{
+      "type": "featured-on-section"
     }
    
   },
   "order": [
    "main",
    "collection-scroll",
-   "badges"
+   "badges",
+   "featuredOn"
   ]
 }

@@ -64,8 +64,8 @@
   transform: translate(-50%, -50%);
 }
 .collection_scroll_section .scroll_arrows_container .left_arrow {
-  width: 45px;
-  height: 45px;
+  width: 36px;
+  height: 36px;
   background-color: #152f4e;
   border-radius: 50%;
   display: flex;
@@ -80,8 +80,8 @@
   object-fit: contain;
 }
 .collection_scroll_section .scroll_arrows_container .right_arrow {
-  width: 42px;
-  height: 42px;
+  width: 36px;
+  height: 36px;
   background-color: #152f4e;
   border-radius: 50%;
   display: flex;
