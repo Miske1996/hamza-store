@@ -1,3 +1,6 @@
+if (!customElements.get('collection-list-filter')) {
+    customElements.define(
+      'collection-list-filter',
 class CollectionListFilter extends HTMLElement {
     constructor() {
       super();
@@ -36,6 +39,7 @@ class CollectionListFilter extends HTMLElement {
         const buttonPrevious = this.querySelector(".button_previous");
         const buttonNext = this.querySelector(".button_next");
         const productsContainer = this.querySelector(".products_container");
+        
 
         // Function to update arrow visibility based on scroll position
         const updateArrowVisibility = () => {
@@ -70,4 +74,4 @@ class CollectionListFilter extends HTMLElement {
         updateArrowVisibility();
     }
 }
-customElements.define('collection-list-filter', CollectionListFilter);
+)}

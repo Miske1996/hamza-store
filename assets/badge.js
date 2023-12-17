@@ -1,3 +1,4 @@
+
 class Badge extends HTMLElement {
     constructor() {
         super();

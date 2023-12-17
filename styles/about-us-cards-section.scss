@@ -1,0 +1,96 @@
+.about_us_cards_section{
+    width: 100vw;
+    height: 115vh;
+    display: flex;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    justify-content: space-between;
+    .card_about_us{
+        width: 45vw;
+        height: 45vw;
+        margin-top: 24vh;
+        position: relative;
+
+        img{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .main_content{
+            width: 29vw;
+            display: flex;
+            flex-direction: column;
+            margin-left: 7vw;
+            margin-top: 9vw;
+            .title_content{
+                color: white;
+                font-size: 6.4rem;
+                line-height: 6.4rem;
+                font-weight: 700;
+                letter-spacing: -.05em;
+            }
+
+            .paragraph{
+                font-size: 1.7rem;
+                line-height: 2.4rem;
+                color: white;
+                margin-top: 4vh;
+
+            }
+
+            .action_button_collection {
+                background-color: white;
+                color: #152F4E;
+                width: 50%;
+                padding: 1.2rem 2.4rem 1.4rem;
+                border-radius: 6.8rem;
+                border: 0.2rem solid transparent;
+                font-size: 1.2rem;
+                cursor: pointer;
+                text-align: center;
+                font-weight: 700;
+                margin-top: 35vh;
+                margin-bottom: 3vh;
+                &:hover{
+                    border-color: white;
+                    background-color: transparent;
+                    color: white;
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .about_us_cards_section{
+        flex-direction: column;
+        height: fit-content;
+        padding-top: 5vw;
+        .card_about_us{
+            width: 95vw;
+            margin-top: 0 !important;
+            height: 100vw;
+            margin-bottom: 2vh;
+
+            .main_content{
+                width: 80%;
+                align-items: center;
+                .title_content{
+                    text-align: center;
+
+                }
+    
+                .paragraph{
+                    text-align: center;
+    
+                }
+                .action_button_collection {
+                    margin-top: 17vh;
+                }
+            }
+        }
+    }
+
+}

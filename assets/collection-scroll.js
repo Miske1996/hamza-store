@@ -1,3 +1,4 @@
+if (!window.customElements.get('collection-scroll')) {
 class CollectionScroll extends HTMLElement {
     constructor() {
       super();
@@ -31,4 +32,4 @@ class CollectionScroll extends HTMLElement {
     });
     }
 }
-customElements.define('collection-scroll', CollectionScroll);
+customElements.define('collection-scroll', CollectionScroll);}
