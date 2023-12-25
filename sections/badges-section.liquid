@@ -1,36 +1,48 @@
 {{ 'badges-section.css' |  asset_url |  stylesheet_tag }}
 <badge-section>
 <div class="badges_section">
-    <div class="badge_container">
-        <img src="{{ 'gift_.png' |  asset_url }}" alt="">
-        <span class="badge_main_title">TRY IT FOR 
-            60 NIGHTS
+    {% for block in section.blocks %}
+        <div class="badge_container">
+        
+        <img src="{{ block.settings.badge_image |  image_url  }}" alt="">
+        <span class="badge_main_title">{{ block.settings.badge_title_id }}
             </span>
-        <span class="badge_sub_title">No Strings Attached
+        <span class="badge_sub_title">{{ block.settings.badge_subtitle_id }}
         </span>
-    </div>
-    <div class="badge_container">
-        <img src="{{ 'gift_.png' |  asset_url }}" alt="">
-        <span class="badge_main_title">WE PAY YOUR SHIPPING</span>
-        <span class="badge_sub_title">$ 9.99 $0 from your first
-            purchase
-        </span>
-    </div>
-    <div class="badge_container">
-        <img src="{{ 'clock.png' |  asset_url }}" alt="">
-        <span class="badge_main_title">BLOOMY CARE+</span>
-        <span class="badge_sub_title">Easy Returns
-            & After Sales            
-        </span>
-    </div>
-    <div class="badge_container">
-        <img src="{{ 'tree.png' |  asset_url }}" alt="">
-        <span class="badge_main_title">A TREE PLANTED
-            FOR YOUR BLOOMY
-            </span>
-        <span class="badge_sub_title">With Eden Deforestation Project
-
-        </span>
-    </div>
+    </div> 
+    {% endfor %}
 </div>
 </badge-section>
+{% schema %}
+{
+    "name": "Badge",
+    "settings": [
+        
+        ],
+    "blocks": [
+        {
+            "name": "Badge",
+            "type": "badge",
+            "limit": 4,
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "badge_title_id",
+                    "label": "Badge Title"
+                },
+                {
+                    "type": "text",
+                    "id": "badge_subtitle_id",
+                    "label": "Badge Subtitle"
+                },
+                {
+                    "type": "image_picker",
+                    "id": "badge_image",
+                    "label": "Badge Image"
+                }
+
+            ]
+        }
+    ]
+}
+{% endschema %}

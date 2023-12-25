@@ -1,33 +1,15 @@
 {{ 'collection-scroll-section.css' |  asset_url |  stylesheet_tag }}
 <collection-scroll>
 <div class="collection_scroll_section">
-    <div class="section_title">The Benefits Are Real</div>
-    <div class="section_sub_title">Transform your hair and Skin in just 4 nights!</div>
+    <div class="section_title">{{ section.settings.title }}</div>
+    <div class="section_sub_title">{{ section.settings.subtitle }}</div>
     <div class="collections_list_scroll">
-        <a class="collection_card">
-            <img src="{{ 'queen_pillow_case.png' |  asset_url }}" alt="">
-            <span class="title_collection_card">QWEEN PILLOWCASES</span>
-        </a>
-        <a class="collection_card">
-            <img src="{{ 'sleep_masks.png' |  asset_url }}" alt="">
-            <span class="title_collection_card">SLEEP MASKS</span>
-        </a>
-        <a class="collection_card">
-            <img src="{{ 'queen_pillow_case.png' |  asset_url }}" alt="">
-            <span class="title_collection_card">QWEEN PILLOWCASES</span>
-        </a>
-        <a class="collection_card">
-            <img src="{{ 'sleep_masks.png' |  asset_url }}" alt="">
-            <span class="title_collection_card">SLEEP MASKS</span>
-        </a>
-        <a class="collection_card">
-            <img src="{{ 'queen_pillow_case.png' |  asset_url }}" alt="">
-            <span class="title_collection_card">QWEEN PILLOWCASES</span>
-        </a>
-        <a class="collection_card">
-            <img src="{{ 'sleep_masks.png' |  asset_url }}" alt="">
-            <span class="title_collection_card">SLEEP MASKS</span>
-        </a>
+        {% for block in section.blocks %}
+            <a class="collection_card">
+                <img src="{{ block.settings.collection_id.featured_image |  image_url  }}" alt="">
+                <span class="title_collection_card">{{ block.settings.collection_id.title }}</span>
+            </a>
+        {% endfor %}
     </div>
     <div class="scroll_arrows_container">
         <div class="left_arrow"><img src="{{ 'left_arrow_.png' |  asset_url }}" alt=""></div>
@@ -35,3 +17,36 @@
     </div>
 </div>
 </collection-scroll>
+{% schema %}
+{
+    "name": "Collection Scroll",
+    "tag": "section",
+    "settings": [
+        {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "The benefits are real"
+        },
+        {
+            "type": "text",
+            "id": "subtitle",
+            "label": "Sub Title",
+            "default": "Transform your hair and Skin in just 4 nights!"
+        }
+        ],
+        "blocks": [
+            {
+                "name": "Slide",
+                "type": "CollectionSlide",
+                "settings": [
+                    {
+                        "type": "collection",
+                        "id": "collection_id",
+                        "label": "Collection Slide"
+                    }
+                ]
+            }
+        ]
+}
+{% endschema %}

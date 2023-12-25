@@ -15,7 +15,7 @@
           <img src="{{ 'search.png' |  asset_url }}" alt="" class="search_button"> 
           <img src="{{ 'search_dark.png' |  asset_url }}" alt="" class="search_button dark"> 
         </div>
-        {% for link in linklists['left_menu'].links %}
+        {% for link in section.settings.left_nav.links %}
           {% if forloop.index == 1 %}
             <a style="background-color:#152F4E;" href="{{ link.url }}" class="menu_title_link">{{ link.title }}</a>
           {% else %}
@@ -26,23 +26,13 @@
 
 
       <div class="logo_header_container">
-        <a href="{{ routes.root_url }}"><img src="{{ 'medium_ANmrhpasAl.webp' |  file_url }}" alt=""></a>
+        <a href="{{ routes.root_url }}"><img src="{{ section.settings.logo |  image_url  }}" alt=""></a>
       </div>
 
 
       <div class="right_menu_header_container">  
-        {% for link in linklists['right_menu'].links %}    
-          {% if forloop.index == 3 %}
-            <a href="{{ link.url }}" class="menu_title_link link_item">
-            <div class="img_location">
-              <img src="{{ 'pin.png' |  asset_url }}" alt="" class="location_button"> 
-              <img src="{{ 'pin_dark.png' |  asset_url }}" alt="" class="location_button dark"> 
-            </div>
-             <span>
-              {{ link.title }}
-             </span>
-             </a>      
-          {% elsif forloop.index == 1 %}
+        {% for link in section.settings.right_nav.links %}         
+          {%if forloop.index == 1 %}
             <a style="margin-left:auto;" href="{{ link.url }}" class="menu_title_link link_item">{{ link.title }}</a>
           {% else %}
             <a href="{{ link.url }}" class="menu_title_link link_item">{{ link.title }}</a>
@@ -64,3 +54,27 @@
 </sticky-header>
 
 {{ 'header.js' |  asset_url|  script_tag }}
+
+{% schema %}
+  {
+      "name": "Header",
+      "tag": "section",
+      "settings": [
+          {
+            "type": "image_picker",
+            "label": "Logo",
+            "id": "logo"
+          },
+          {
+            "type": "link_list",
+            "id": "left_nav",
+            "label": "Left Navigation"
+          },
+          {
+            "type": "link_list",
+            "id": "right_nav",
+            "label": "Right Navigation"
+          }
+          ]
+  }
+  {% endschema %}

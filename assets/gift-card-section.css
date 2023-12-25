@@ -1,10 +1,11 @@
 .gift_card_section {
   width: 100vw;
-  height: 53vw;
-  background-color: #4a7077;
+  height: fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
 }
 .gift_card_section .gift_card_wrapper {
   width: 92%;
@@ -37,10 +38,9 @@
   font-weight: 700;
   letter-spacing: -0.05em;
 }
-.gift_card_section .gift_card_wrapper .main_gift_content .paragraph {
+.gift_card_section .gift_card_wrapper .main_gift_content p {
   font-size: 1.7rem;
   line-height: 2.4rem;
-  color: white;
 }
 .gift_card_section .gift_card_wrapper .main_gift_content .action_button_collection {
   background-color: white;
@@ -50,6 +50,7 @@
   border-radius: 6.8rem;
   border: 0.2rem solid transparent;
   font-size: 1.2rem;
+  text-decoration: none;
   cursor: pointer;
   text-align: center;
   font-weight: 700;

@@ -1,9 +1,10 @@
 .gift_card_section{
     width: 100vw;
-    height: 53vw;
-    background-color: #4a7077;
+    height: fit-content;
     display: flex;justify-content: center;
     align-items: center;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
     .gift_card_wrapper{
         width: 92%;
         height: 90%;
@@ -37,10 +38,9 @@
                 letter-spacing: -.05em;
             }
 
-            .paragraph{
+            p{
                 font-size: 1.7rem;
                 line-height: 2.4rem;
-                color: white;
             }
 
             .action_button_collection {
@@ -51,6 +51,7 @@
                 border-radius: 6.8rem;
                 border: 0.2rem solid transparent;
                 font-size: 1.2rem;
+                text-decoration: none;
                 cursor: pointer;
                 text-align: center;
                 font-weight: 700;

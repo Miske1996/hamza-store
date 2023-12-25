@@ -1,11 +1,58 @@
 {{ 'hero-section.css' |  asset_url |  stylesheet_tag }}
 <div class="hero_section_container">
-    <div class="img_container"><img src="https://a.storyblok.com/f/148227/2880x1580/dba25665a4/jott_xmas4885-1-hero.jpg" alt=""></div>
+    <div class="img_container"><img src="{{ section.settings.image_hero |  image_url  }}" alt=""></div>
     <div class="main_content">
-        <h1 class="hero_title">Christmas in down jackets</h1>
+        <h1 class="hero_title">{{ section.settings.title_hero }}</h1>
         <div class="buttons_hero_container">
-            <a class="btn"><span>WOMAN</span></a>
-            <a class="btn"><span>MEN</span></a>
+            {% for block in section.blocks %}
+                <a class="btn" href="{{ block.settings.hero_btn.url }}"><span>{{ block.settings.hero_btn.title}}</span></a>
+            {% endfor %}
+           
         </div>
     </div>
 </div>
+{% schema %}
+{
+    "name": "hero",
+    "tag": "section",
+    "settings": [
+        {
+            "type":"text",
+            "id": "title_hero",
+            "label": "Hero Label",
+            "default": "Christmas in down jackets"
+        },
+        {
+            "type":"image_picker",
+            "id": "image_hero",
+            "label": "Hero Image"
+        }
+
+        ],
+    "blocks": [{
+        "name": "Hero button",
+        "type": "heroButton",
+        "limit": 3,
+        "settings": [
+            {
+                "type":"collection",
+                "id": "hero_btn",
+                "label": "Hero Button"
+            }
+        ]
+    }],
+  "presets": [
+    {
+      "name": "Hero Button",
+      "blocks": [
+        {
+          "type": "heroButton"
+        },
+        {
+          "type": "heroButton" 
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

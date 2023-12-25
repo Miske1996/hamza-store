@@ -1,20 +1,56 @@
 {{ 'gift-card-reverse-section.css' |  asset_url |  stylesheet_tag }}
-<div class="git_card_section">
+<div class="git_card_section" style="background-color: {{ section.settings.background  }};">
     <div class="gift_card_wrapper">
-        <div class="main_gift_content">
-            <h1 class="title_content">Christmas selection
-
+        <div class="main_gift_content" style="color: {{ section.settings.color_text }};">
+            <h1 class="title_content" style="color: {{ section.settings.color_text }};">{{ section.settings.title }}
             </h1>
-            <p class="paragraph">Live Christmas with JOTT and find the perfect gift for your loved ones. <br><br>
-
-            For Man, for women or for Kid, discover our best products to (indulge) yourself!
-            
-            </p>
-            <div class="action_button_collection">DISCOVER OUR SELECTION</div>
+            <p class="paragraph" >{{ section.settings.paragraph }}</p>
+            <a class="action_button_collection" href="{{ section.settings.collection_id.url }}">SEE THE SELECTION</a>
         </div>
         <div class="gift_image_container">
-            <img src="https://a.storyblok.com/f/148227/1296x1296/4d3d3aa44b/jott_xmas4494-carre.jpg/m/648x0/filters:quality(80)" alt="">
+            <img src="{{ section.settings.image_gift |  image_url }}" alt="">
         </div>
        
     </div>
 </div>
+{% schema %}
+    {
+        "name": "Gift Card Reverse",
+        "tag": "section",
+        "settings": [
+            {
+                "type": "text",
+                "id": "title",
+                "label": "Title",
+                "default": "Your gifts up to 20% off"
+            },
+            {
+                "type": "collection",
+                "id": "collection_id",
+                "label": "Collection"
+            },
+            {
+                "type":"image_picker",
+                "id": "image_gift",
+                "label": "Gift Card Image"
+            },
+            {
+                "type": "richtext",
+                "id": "paragraph",
+                "label": "Paragraph"
+            },
+            {
+                "type":"color",
+                "id": "color_text",
+                "label": "Text Color",
+                "default": "#FFFFFF"
+            },
+            {
+                "type":"color",
+                "id": "background",
+                "label": "Background Color",
+                "default": "#4a7077"
+            }
+            ]
+    }
+    {% endschema %}
