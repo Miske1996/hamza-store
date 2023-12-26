@@ -1,6 +1,26 @@
 {
-  "current": "Default",
+  "current": {
+    "sections": {
+      "menu-drawer-section": {
+        "type": "menu-drawer-section",
+        "settings": {
+        }
+      },
+      "header-section": {
+        "type": "header-section",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/medium_ANmrhpasAl.png",
+          "left_nav": "left_menu",
+          "right_nav": "right_menu"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
+  },
   "presets": {
-    "Default": {}
+    "Default": {
+    }
   }
 }
