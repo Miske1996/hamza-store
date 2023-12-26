@@ -1,6 +1,6 @@
 .collection_scroll_section {
   width: 100vw;
-  height: 50vh;
+  height: 45vh;
   background-color: #edf4fd;
   display: flex;
   flex-direction: column;
@@ -9,9 +9,9 @@
 }
 .collection_scroll_section .section_title {
   color: #152f4e;
-  font-size: 3.2rem;
-  line-height: 4rem;
-  font-weight: 600;
+  font-size: 6.4rem;
+  line-height: 6.4rem;
+  font-weight: 700;
   margin-top: 2vh;
 }
 .collection_scroll_section .section_sub_title {
@@ -22,7 +22,7 @@
 .collection_scroll_section .collections_list_scroll {
   width: 87%;
   height: 60%;
-  margin-top: 4vh;
+  margin-top: 5vh;
   display: flex;
   overflow-x: scroll;
   /* Hide scrollbar for Chrome, Safari and Opera */

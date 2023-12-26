@@ -51,36 +51,117 @@ class CollectionListFilter extends HTMLElement {
         });
     }
 
-    typeCollectionTabs(){
-        let collection_tabs = this.querySelectorAll(".collection_tab");
-        collection_tabs.forEach((collection_tab,key) => {
-            collection_tab.addEventListener('click',() => {
-                this.chosen_type = this.uniqueTypesFilter[key];
-                console.log(this.chosen_type)
-                collection_tab.style.borderBottom = "2px solid #152f4e";
-                collection_tabs.forEach((c) => {
-                    if(c!=collection_tab){
-                        c.style.borderBottom = "none";
-                    }
-                })         
-            })
-        })
+    typeCollectionTabs() {
+    let collection_tabs = this.querySelectorAll(".collection_tab");
+    collection_tabs.forEach((collection_tab, key) => {
+        collection_tab.addEventListener('click', () => {
+            this.chosen_type = this.uniqueTypesFilter[key];
+
+            // Filter products based on chosen type and color
+            const filteredProducts = this.products.filter(product => {
+                return (this.chosen_color === "" || product.color === this.chosen_color) && (this.chosen_type === "" || product.type === this.chosen_type);
+            });
+
+            // Clear previous products
+            const productsContainer = this.querySelector('.products_container');
+            productsContainer.innerHTML = '';
+
+            // Group filtered products by variant ID
+            const productsByVariant = {};
+            filteredProducts.forEach(product => {
+                const variantId = product.variant;
+                if (!productsByVariant[variantId]) {
+                    productsByVariant[variantId] = [];
+                }
+                productsByVariant[variantId].push(product);
+            });
+
+            // Create product cards dynamically for the filtered products
+            for (const variantId in productsByVariant) {
+                const variantProducts = productsByVariant[variantId];
+                const productCard = document.createElement('div');
+                productCard.classList.add('product_card');
+                productCard.innerHTML = `
+                    <div class="product_images_container">
+                        <img src="${variantProducts[0].front_image}"  alt="" class="top">
+                        <img src="${variantProducts[0].back_image}" alt="" class="bottom">
+                    </div>
+                    <span class="product_badge">BEST SELLER</span>
+                    <a class="product_title">${variantProducts[0].title}</a>
+                    <div class="bottom_container">
+                        ${variantProducts.map(product => `<a class="color_product" href="${product.url}" style="background-color: ${product.color}"></a>`).join('')}
+                        <span class="see_more">See more</span>
+                        <span class="price_product">${variantProducts[0].price}</span>
+                    </div>
+                `;
+                productsContainer.appendChild(productCard);
+            }
+
+            // Update borders for collection tabs
+            collection_tabs.forEach((c, index) => {
+                c.style.borderBottom = index === key ? '2px solid #152f4e' : 'none';
+            });
+        });
+    });
     }
 
-    colorFilter(){
-        let color_container = this.querySelectorAll(".color_container");
-        color_container.forEach((color,key) => {
-            color.addEventListener('click',() => {
-                this.chosen_color = this.uniqueColorsFilter[key]
-                color.style.border = "1px solid " + this.uniqueColorsFilter[key];
-                color_container.forEach((c) => {
-                    if(c != color){
-                        c.style.border = "none";
-                    }
-                })
-            })
-        })
+    colorFilter() {
+    let color_container = this.querySelectorAll(".color_container");
+    color_container.forEach((color, key) => {
+        color.addEventListener('click', () => {
+            let title_section = this.querySelector(".title_section");
+            title_section.style.color = this.uniqueColorsFilter[key];
+            this.chosen_color = this.uniqueColorsFilter[key];
+
+            // Filter products based on chosen color and type
+            const filteredProducts = this.products.filter(product => {
+                return product.color === this.chosen_color && (this.chosen_type === "" || product.type === this.chosen_type);
+            });
+
+            // Clear previous products
+            const productsContainer = this.querySelector('.products_container');
+            productsContainer.innerHTML = '';
+
+            // Group filtered products by variant ID
+            const productsByVariant = {};
+            filteredProducts.forEach(product => {
+                const variantId = product.variant;
+                if (!productsByVariant[variantId]) {
+                    productsByVariant[variantId] = [];
+                }
+                productsByVariant[variantId].push(product);
+            });
+
+            // Create product cards dynamically for the filtered products
+            for (const variantId in productsByVariant) {
+                const variantProducts = productsByVariant[variantId];
+                const productCard = document.createElement('div');
+                productCard.classList.add('product_card');
+                productCard.innerHTML = `
+                    <div class="product_images_container">
+                        <img src="${variantProducts[0].front_image}"  alt="" class="top">
+                        <img src="${variantProducts[0].back_image}" alt="" class="bottom">
+                    </div>
+                    <span class="product_badge">BEST SELLER</span>
+                    <a class="product_title">${variantProducts[0].title}</a>
+                    <div class="bottom_container">
+                        ${variantProducts.map(product => `<a class="color_product" href="${product.url}" style="background-color: ${product.color}"></a>`).join('')}
+                        <span class="see_more">See more</span>
+                        <span class="price_product">${variantProducts[0].price}</span>
+                    </div>
+                `;
+                productsContainer.appendChild(productCard);
+            }
+
+            // Update borders for color containers
+            color_container.forEach((c, index) => {
+                c.style.border = index === key ? `1px solid ${this.uniqueColorsFilter[key]}` : 'none';
+            });
+        });
+    });
     }
+
+
 
     initCardsProducts(){
         const productsContainer = this.querySelector('.products_container');
@@ -102,13 +183,13 @@ class CollectionListFilter extends HTMLElement {
             productCard.classList.add('product_card');
             productCard.innerHTML = `
                 <div class="product_images_container">
-                    <img src="${variantProducts[0].front_image}" alt="" class="top">
+                    <img src="${variantProducts[0].front_image}"  alt="" class="top">
                     <img src="${variantProducts[0].back_image}" alt="" class="bottom">
                 </div>
                 <span class="product_badge">BEST SELLER</span>
                 <a class="product_title">${variantProducts[0].title}</a>
                 <div class="bottom_container">
-                    ${variantProducts.map(product => `<div class="color_product" style="background-color: ${product.color}"></div>`).join('')}
+                    ${variantProducts.map(product => `<a class="color_product" href="${product.url}" style="background-color: ${product.color}"></a>`).join('')}
                     <span class="see_more">See more</span>
                     <span class="price_product">${variantProducts[0].price}</span>
                 </div>
