@@ -20,7 +20,7 @@
         
     {% if template == 'index' %}
     
-      {{ 'collection-list-filter.js' | asset_url | script_tag }}
+      {% comment %} {{ 'collection-list-filter.js' | asset_url | script_tag }} {% endcomment %}
       {{ 'badge.js' |  asset_url |  script_tag }}
       {{ 'featured-on.js' |  asset_url |  script_tag }}
       {{ 'collection-scroll.js' |  asset_url |  script_tag }}
