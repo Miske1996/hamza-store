@@ -194,7 +194,7 @@
     "collectionListFilter2": {
       "type": "collection-list-filter-section",
       "settings": {
-        "collection_id": ""
+        "collection_id": "jackets-collection"
       }
     },
     "giftCardReverse": {
@@ -211,7 +211,7 @@
     "collectionListFilter3": {
       "type": "collection-list-filter-section",
       "settings": {
-        "collection_id": ""
+        "collection_id": "jackets-collection"
       }
     },
     "giftCard2": {
@@ -219,7 +219,8 @@
       "settings": {
         "title": "Your gifts up to 20% off",
         "collection_id": "",
-        "paragraph": "",
+        "image_gift": "shopify:\/\/shop_images\/filters_quality_80.webp",
+        "paragraph": "<h2><strong>Refer a friend & receive €15 discount each<\/strong><\/h2><h2><\/h2><p>Share your referral link with your friends and family so they can take advantage of it, and receive a €15 discount on their first<\/p>",
         "color_text": "#FFFFFF",
         "background": "#4a7077"
       }
@@ -229,9 +230,11 @@
       "settings": {
         "title_card_1": "Our Stores",
         "sub_title_1": "Nearest to your home",
+        "background_img_1": "shopify:\/\/shop_images\/about_us_fle.jpg",
         "button_url_1": "",
         "title_card_2": "Our Stores",
         "sub_title_2": "Nearest to your home",
+        "background_img_2": "shopify:\/\/shop_images\/about_us_fle.jpg",
         "button_url_2": ""
       }
     }
