@@ -13,28 +13,29 @@ class MenuDrawer extends HTMLElement {
 
     open(){
         document.addEventListener("DOMContentLoaded",  () => {
-            let links = document.querySelectorAll(".left_menu_header_container .link_item")
+            // let links = document.querySelectorAll(".left_menu_header_container .link_item")
             let more_button = document.querySelectorAll(".left_menu_header_container .more_button")
             
-            links.forEach((link) => {
-                link.addEventListener('click', () => {
-                    console.log("clicked ")
-                    document.querySelector("body").style.overflowY = "hidden"
-                    this.menu_drawer_section_container.style.display = "flex";  
-                    this.menu_drawer_section_container.style.opacity = "1";  
-                    setTimeout(() => {
-                        this.drawer_menu_inner.style.transform = "translateX(0)";  
-                        this.inner_links_subtree_.forEach((inner_ln) => {
-                            if(inner_ln.querySelector(".main_title_link_span").innerHTML === link.innerHTML){
-                                inner_ln.closest(".nav_drawer_main_link").classList.add("active_link_subtree");
-                                inner_ln.querySelector(".arrow_img").classList.add("rotate_arrow")
-                            }
-                        })
-                    },50);     
-                })
-            })
+            // links.forEach((link) => {
+            //     link.addEventListener('click', () => {
+            //         console.log("clicked ")
+            //         document.querySelector("body").style.overflowY = "hidden"
+            //         this.menu_drawer_section_container.style.display = "flex";  
+            //         this.menu_drawer_section_container.style.opacity = "1";  
+            //         setTimeout(() => {
+            //             this.drawer_menu_inner.style.transform = "translateX(0)";  
+            //             this.inner_links_subtree_.forEach((inner_ln) => {
+            //                 if(inner_ln.querySelector(".main_title_link_span").innerHTML === link.innerHTML){
+            //                     inner_ln.closest(".nav_drawer_main_link").classList.add("active_link_subtree");
+            //                     inner_ln.querySelector(".arrow_img").classList.add("rotate_arrow")
+            //                 }
+            //             })
+            //         },50);     
+            //     })
+            // })
             more_button.forEach((more_btn) => {
                 more_btn.addEventListener('click', () => {
+                    console.log("clicked")
                     document.querySelector("body").style.overflowY = "hidden"
                     this.menu_drawer_section_container.style.display = "flex";   
                     this.menu_drawer_section_container.style.opacity = "1";   

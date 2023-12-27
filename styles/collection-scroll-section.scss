@@ -45,10 +45,16 @@
             display: flex;
             align-items: center;
             flex-direction: column;
+            
             img{
                 width: 80%;
                 height: 90%;
                 object-fit:contain;
+                transition: all .8s;
+                transform: scale(1);
+                &:hover{
+                    transform: scale(1.1);
+                }
             }
             .title_collection_card{
                 display: block;

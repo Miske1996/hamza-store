@@ -42,7 +42,10 @@
                     width: 10px;
                     height: 10px;
                     border-radius: 50%;
-                    background-color: rgb(245, 148, 222);
+                    background-color: black;
+                }
+                &:hover{
+                    border: 1px solid black;
                 }
             }
             .color_active{

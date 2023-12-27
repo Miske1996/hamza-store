@@ -44,7 +44,10 @@
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  background-color: rgb(245, 148, 222);
+  background-color: black;
+}
+.collection_list_filter_section .filter_container .colors_picker .color_container:hover {
+  border: 1px solid black;
 }
 .collection_list_filter_section .filter_container .colors_picker .color_active {
   border: 2px solid rgb(245, 148, 222);

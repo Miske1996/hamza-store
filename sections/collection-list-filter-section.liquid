@@ -6,12 +6,16 @@
     </script>
     <h1 class="title_section">{{ section.settings.collection_id.title }}</h1>
     <div class="filter_container">
-        <div class="colors_picker">
+        <div class="colors_picker" {% if section.settings.check_color %}
+            style="visibility:hidden;"
+        {% endif %}>
             <div class="colors_picker_wrapper">
                 
             </div>  
         </div>
-        <div class="collection_tabs_container">
+        <div class="collection_tabs_container" {% if section.settings.check_type %}
+            style="visibility:hidden;"
+        {% endif %}>
         </div>
     </div>
     <div class="arrows_container">
@@ -20,7 +24,7 @@
     </div>
     <div class="products_container"> 
     </div>
-    <a class="action_button_collection" href="{{ ection.settings.collection_id.url }}">SHOP ALL</a>
+    <a class="action_button_collection" href="{{  section.settings.collection_id.url }}">SHOP ALL</a>
 </div>
 </collection-list-filter>
 
@@ -32,6 +36,16 @@
             "type": "collection",
             "id": "collection_id",
             "label": "Choose the Collection"
+        },
+        {
+            "type": "checkbox",
+            "id": "check_color",
+            "label": "Hide Color Filter"
+        },
+        {
+            "type": "checkbox",
+            "id": "check_type",
+            "label": "Hide Types Filter"
         }
         ],
         "presets": [

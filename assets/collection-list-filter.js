@@ -110,7 +110,12 @@ class CollectionListFilter extends HTMLElement {
     color_container.forEach((color, key) => {
         color.addEventListener('click', () => {
             let title_section = this.querySelector(".title_section");
+            let buttonPrevious = this.querySelector(".button_previous");
+            let buttonNext = this.querySelector(".button_next");
             title_section.style.color = this.uniqueColorsFilter[key];
+            buttonNext.style.backgroundColor = this.uniqueColorsFilter[key];
+            buttonPrevious.style.backgroundColor = this.uniqueColorsFilter[key];
+
             this.chosen_color = this.uniqueColorsFilter[key];
 
             // Filter products based on chosen color and type

@@ -19,7 +19,7 @@
           {% if forloop.index == 1 %}
             <a style="background-color:#152F4E;" href="{{ link.url }}" class="menu_title_link">{{ link.title }}</a>
           {% else %}
-            <span class="menu_title_link link_item">{{ link.title }}</span>
+            <a class="menu_title_link link_item" href="{{ link.url }}">{{ link.title }}</a>
           {% endif %}  
         {% endfor %}    
       </div>

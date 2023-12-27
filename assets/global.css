@@ -37,3 +37,8 @@ html {
   src: url("Assistant-Light.ttf");
   font-weight: 400;
 }
+@font-face {
+  font-family: "Assistant";
+  src: url("Assistant-ExtraLight.ttf");
+  font-weight: 300;
+}

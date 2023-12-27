@@ -47,6 +47,11 @@
   width: 80%;
   height: 90%;
   object-fit: contain;
+  transition: all 0.8s;
+  transform: scale(1);
+}
+.collection_scroll_section .collections_list_scroll .collection_card img:hover {
+  transform: scale(1.1);
 }
 .collection_scroll_section .collections_list_scroll .collection_card .title_collection_card {
   display: block;
