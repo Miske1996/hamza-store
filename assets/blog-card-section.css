@@ -37,14 +37,16 @@
 }
 .blog_card_section .main_blog .blog_textual_container .title {
   font-size: 6rem;
-  color: white;
   font-weight: 700;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
 }
+.blog_card_section .main_blog .blog_textual_container p {
+  color: inherit;
+}
 .blog_card_section .main_blog .blog_textual_container p span {
-  color: white;
+  color: inherit;
   font-size: 1.5rem;
   text-align: center;
   font-weight: 300;
@@ -56,7 +58,6 @@
 }
 .blog_card_section .main_blog .blog_textual_container .read_more {
   color: white;
-  border-bottom: 0.5px solid white;
   font-size: 1.6rem;
   font-weight: 300;
   cursor: pointer;
@@ -98,18 +99,19 @@
   object-fit: cover;
 }
 .blog_card_section .blogs_list .blog_item .date {
-  color: white;
   font-weight: 300;
   font-size: 1.6rem;
 }
 .blog_card_section .blogs_list .blog_item .title {
-  color: white;
   font-size: 2.8rem;
   text-decoration: none;
   cursor: pointer;
 }
+.blog_card_section .blogs_list .blog_item p {
+  color: inherit;
+}
 .blog_card_section .blogs_list .blog_item p span {
-  color: white;
+  color: inherit;
   font-size: 1.5rem;
   font-weight: 300;
   -webkit-line-clamp: 1;
@@ -120,7 +122,6 @@
 }
 .blog_card_section .blogs_list .blog_item .read_more {
   color: white;
-  border-bottom: 0.5px solid white;
   font-size: 1.6rem;
   font-weight: 300;
   cursor: pointer;

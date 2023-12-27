@@ -1,35 +1,35 @@
 {{ 'blog-card-section.css' |  asset_url |  stylesheet_tag }}
-<div class="blog_card_section">
+<div class="blog_card_section" style="background: {{ section.settings.background }};">
     <div class="main_blog">
         <a class="blog_img" href="{{ section.settings.blog_main.url }}"><img src="{{ section.settings.blog_main.image |  image_url }}" alt=""></a>
-        <div class="blog_textual_container">
-            <a class="title">{{ section.settings.blog_main.title }}</a>
-            <p class="paragraph">{{ section.settings.blog_main.content }}</p>
-            <a class="read_more" href="{{ section.settings.blog_main.url }}">READ MORE</a>
+        <div class="blog_textual_container" style="color: {{ section.settings.color_text }};">
+            <a class="title" style="color: {{ section.settings.color_text }};">{{ section.settings.blog_main.title }}</a>
+            <p class="paragraph" style="color: {{ section.settings.color_text }};">{{ section.settings.blog_main.content }}</p>
+            <a class="read_more" href="{{ section.settings.blog_main.url }}" style="color: {{ section.settings.color_text }};">READ MORE</a>
         </div>
     </div>
     <div class="blogs_list">
 
-        <div class="blog_item">
+        <div class="blog_item" style="color: {{ section.settings.color_text }};">
             <a class="blog_img" href="{{ section.settings.blog_1.url}}"><img src="{{ section.settings.blog_1.image |  image_url }}" alt=""></a>
-            <div class="date">{{ section.settings.blog_1.published_at | date: "%d %B %Y"}}</div>
-            <a class="title">{{ section.settings.blog_1.title}}</a>
-            {{ section.settings.blog_1.content}}
-            <a class="read_more" href="{{ section.settings.blog_1.url}}">READ MORE</a>
+            <div class="date" style="color: {{ section.settings.color_text }};">{{ section.settings.blog_1.published_at | date: "%d %B %Y"}}</div>
+            <a class="title" style="color: {{ section.settings.color_text }};">{{ section.settings.blog_1.title}}</a>
+            <p class="paragraph" style="color: {{ section.settings.color_text }};">{{ section.settings.blog_1.content}}</p>
+            <a class="read_more" href="{{ section.settings.blog_1.url}}" style="color: {{ section.settings.color_text }};">READ MORE</a>
         </div>
-        <div class="blog_item">
+        <div class="blog_item" style="color: {{ section.settings.color_text }};">
             <a class="blog_img" href="{{ section.settings.blog_2.url}}"><img src="{{ section.settings.blog_2.image |  image_url }}" alt=""></a>
-            <div class="date">{{ section.settings.blog_2.published_at | date: "%d %B %Y"}}</div>
-            <div class="title">{{ section.settings.blog_2.title}}</div>
-            {{ section.settings.blog_2.content}}
-            <a class="read_more" href="{{ section.settings.blog_2.url}}">READ MORE</a>
+            <div class="date" style="color: {{ section.settings.color_text }};">{{ section.settings.blog_2.published_at | date: "%d %B %Y"}}</div>
+            <div class="title" style="color: {{ section.settings.color_text }};">{{ section.settings.blog_2.title}}</div>
+            <p class="paragraph" style="color: {{ section.settings.color_text }};">{{ section.settings.blog_2.content}}</p>
+            <a class="read_more" style="color: {{ section.settings.color_text }};" href="{{ section.settings.blog_2.url}}">READ MORE</a>
         </div>
-        <div class="blog_item">
+        <div class="blog_item" style="color: {{ section.settings.color_text }};">
             <a class="blog_img" href="{{ section.settings.blog_3.url}}"><img src="{{ section.settings.blog_3.image |  image_url }}" alt=""></a>
-            <div class="date">{{ section.settings.blog_3.published_at | date: "%d %B %Y"}}</div>
-            <div class="title">{{ section.settings.blog_3.title}}</div>
-           {{ section.settings.blog_3.content}}
-            <a class="read_more" href="{{ section.settings.blog_3.url}}">READ MORE</a>
+            <div class="date" style="color: {{ section.settings.color_text }};">{{ section.settings.blog_3.published_at | date: "%d %B %Y"}}</div>
+            <div class="title" style="color: {{ section.settings.color_text }};">{{ section.settings.blog_3.title}}</div>
+            <p class="paragraph" style="color: {{ section.settings.color_text }};">{{ section.settings.blog_3.content}}</p>
+            <a class="read_more" style="color: {{ section.settings.color_text }};" href="{{ section.settings.blog_3.url}}">READ MORE</a>
         </div>
 
     </div>
@@ -52,10 +52,23 @@
             "type": "article",
             "id": "blog_2",
             "label": "Blog 2"
-        },{
+        },
+        {
             "type": "article",
             "id": "blog_3",
             "label": "Blog 3"
+        } ,
+        {
+            "type":"color",
+            "id": "color_text",
+            "label": "Text Color",
+            "default": "#FFFFFF"
+        },
+        {
+            "type":"color",
+            "id": "background",
+            "label": "Background Color",
+            "default": "#000000"
         }
         ],
         "presets": [{
