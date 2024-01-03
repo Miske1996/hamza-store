@@ -177,7 +177,9 @@
     "collectionListFilter": {
       "type": "collection-list-filter-section",
       "settings": {
-        "collection_id": "jackets-collection"
+        "collection_id": "jackets-collection",
+        "check_color": false,
+        "check_type": false
       }
     },
     "giftCard": {
@@ -187,14 +189,16 @@
         "collection_id": "men",
         "image_gift": "shopify:\/\/shop_images\/gift_img.webp",
         "paragraph": "<h2><strong>Refer a friend & receive €15 discount each<\/strong><\/h2><p>Share your referral link with your friends and family so they can take advantage of it, and receive a €15 discount on their first order (valid from €150 purchase on jott ).<\/p>",
-        "color_text": "#FFFFFF",
+        "color_text": "#ffffff",
         "background": "#4a7077"
       }
     },
     "collectionListFilter2": {
       "type": "collection-list-filter-section",
       "settings": {
-        "collection_id": "jackets-collection"
+        "collection_id": "jackets-collection",
+        "check_color": false,
+        "check_type": false
       }
     },
     "giftCardReverse": {
@@ -204,14 +208,16 @@
         "collection_id": "jackets-collection",
         "image_gift": "shopify:\/\/shop_images\/gift_img.webp",
         "paragraph": "<h2><strong>Refer a friend & receive €15 discount each<\/strong><\/h2><p><\/p><p>Share your referral link with your friends and family so they can take advantage of it, and receive a €15 discount on their first<\/p>",
-        "color_text": "#FFFFFF",
+        "color_text": "#ffffff",
         "background": "#4a7077"
       }
     },
     "collectionListFilter3": {
       "type": "collection-list-filter-section",
       "settings": {
-        "collection_id": "jackets-collection"
+        "collection_id": "jackets-collection",
+        "check_color": false,
+        "check_type": false
       }
     },
     "giftCard2": {
@@ -221,12 +227,20 @@
         "collection_id": "",
         "image_gift": "shopify:\/\/shop_images\/filters_quality_80.webp",
         "paragraph": "<h2><strong>Refer a friend & receive €15 discount each<\/strong><\/h2><h2><\/h2><p>Share your referral link with your friends and family so they can take advantage of it, and receive a €15 discount on their first<\/p>",
-        "color_text": "#FFFFFF",
+        "color_text": "#ffffff",
         "background": "#4a7077"
       }
     },
-    "blogCard":{
-      "type": "blog-card-section"
+    "blogCard": {
+      "type": "blog-card-section",
+      "settings": {
+        "blog_main": "news\/melanie-grant",
+        "blog_1": "news\/melanie-grant",
+        "blog_2": "news\/melanie-grant",
+        "blog_3": "news\/melanie-grant",
+        "color_text": "#FFFFFF",
+        "background": "#000000"
+      }
     },
     "aboutUsCards": {
       "type": "about-us-cards-section",
