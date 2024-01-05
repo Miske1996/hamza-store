@@ -31,7 +31,7 @@
         "22df8b39-6ab1-45ba-b751-d97403daf75d": {
           "type": "CollectionSlide",
           "settings": {
-            "collection_id": "queen-pillowcases"
+            "collection_id": "king-pillowcases"
           }
         },
         "879ab7a5-081e-412d-b50b-73f06580dcb6": {
@@ -75,7 +75,9 @@
       ],
       "settings": {
         "title": "The benefits are real",
-        "subtitle": "Transform your hair and Skin in just 4 nights!"
+        "subtitle": "Transform your hair and Skin in just 4 nights!",
+        "background_arrows": "#152f4e",
+        "background": "#edf4fd"
       }
     },
     "badges": {
@@ -121,6 +123,7 @@
         "8a2e6bd0-5cd7-4491-b43b-8ac30e094d7e"
       ],
       "settings": {
+        "background": "#ffffff"
       }
     },
     "featuredOn": {
@@ -177,6 +180,7 @@
     "collectionListFilter": {
       "type": "collection-list-filter-section",
       "settings": {
+        "card_size": "standard",
         "collection_id": "jackets-collection",
         "check_color": false,
         "check_type": false
@@ -196,6 +200,7 @@
     "collectionListFilter2": {
       "type": "collection-list-filter-section",
       "settings": {
+        "card_size": "standard",
         "collection_id": "jackets-collection",
         "check_color": false,
         "check_type": false
@@ -215,6 +220,7 @@
     "collectionListFilter3": {
       "type": "collection-list-filter-section",
       "settings": {
+        "card_size": "standard",
         "collection_id": "jackets-collection",
         "check_color": false,
         "check_type": false
@@ -238,7 +244,7 @@
         "blog_1": "news\/melanie-grant",
         "blog_2": "news\/melanie-grant",
         "blog_3": "news\/melanie-grant",
-        "color_text": "#FFFFFF",
+        "color_text": "#ffffff",
         "background": "#000000"
       }
     },
