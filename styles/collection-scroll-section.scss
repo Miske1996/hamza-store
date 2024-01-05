@@ -1,7 +1,6 @@
 .collection_scroll_section{
     width: 100vw;
     height: 45vh;
-    background-color: #edf4fd;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,13 +15,13 @@
 
     .section_sub_title{
         color: #152f4e;
-        font-size: 1.3rem;
+        font-size: 1.3vw;
         // line-height: 4rem;
         font-weight: 400;
         // margin-top: 1vh;
     }
     .collections_list_scroll{
-        width: 87%;
+        width: 87%; 
         height: 60%;
         margin-top: 5vh;
         display: flex;
@@ -67,11 +66,12 @@
     .scroll_arrows_container{
         width: 95%;
         height: 45px;
-        display: flex;
+        display: flex; 
         position: absolute;
-        top: 50%;
+        top: 59%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%,-0%);
+        align-items: center;
         .left_arrow{
             width: 36px;
             height: 36px;
@@ -107,7 +107,7 @@
         }
     }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
     .collection_scroll_section{
         height: 40vh;
         .section_title{

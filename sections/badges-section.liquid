@@ -1,6 +1,6 @@
 {{ 'badges-section.css' |  asset_url |  stylesheet_tag }}
 <badge-section>
-<div class="badges_section">
+<div class="badges_section" style="background-color:{{ section.settings.background }};">
     {% for block in section.blocks %}
         <div class="badge_container">
         
@@ -17,7 +17,12 @@
 {
     "name": "Badge",
     "settings": [
-        
+        {
+            "type":"color",
+            "id": "background",
+            "label": "Background Color",
+            "default": "#ffffff"
+        }
         ],
     "blocks": [
         {

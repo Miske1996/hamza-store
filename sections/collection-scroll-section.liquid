@@ -1,6 +1,6 @@
 {{ 'collection-scroll-section.css' |  asset_url |  stylesheet_tag }}
 <collection-scroll>
-<div class="collection_scroll_section">
+<div class="collection_scroll_section" style="background-color:{{ section.settings.background }};">
     <div class="section_title">{{ section.settings.title }}</div>
     <div class="section_sub_title">{{ section.settings.subtitle }}</div>
     <div class="collections_list_scroll">
@@ -12,8 +12,8 @@
         {% endfor %}
     </div>
     <div class="scroll_arrows_container">
-        <div class="left_arrow"><img src="{{ 'left_arrow_.png' |  asset_url }}" alt=""></div>
-        <div class="right_arrow"><img src="{{ 'left_arrow_.png' |  asset_url }}" alt=""></div>
+        <div class="left_arrow" style="background-color:{{ section.settings.background_arrows }};"><img src="{{ 'left_arrow_.png' |  asset_url }}" alt=""></div>
+        <div class="right_arrow" style="background-color:{{ section.settings.background_arrows }};"><img src="{{ 'left_arrow_.png' |  asset_url }}" alt=""></div>
     </div>
 </div>
 </collection-scroll>
@@ -33,6 +33,18 @@
             "id": "subtitle",
             "label": "Sub Title",
             "default": "Transform your hair and Skin in just 4 nights!"
+        },
+        {
+            "type":"color",
+            "id": "background_arrows",
+            "label": "Background Color Arrows",
+            "default": "#152f4e"
+        },
+        {
+            "type":"color",
+            "id": "background",
+            "label": "Background Color",
+            "default": "#edf4fd"
         }
         ],
         "blocks": [

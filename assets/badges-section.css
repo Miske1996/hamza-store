@@ -1,7 +1,6 @@
 .badges_section {
   width: 100vw;
   height: 35vh;
-  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,7 +34,7 @@
 .badges_section .badge_container .badge_main_title {
   margin-top: 1.6rem;
   font-weight: 700;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   line-height: 2rem;
   color: #152f4e;
   text-align: center;
@@ -43,11 +42,11 @@
 .badges_section .badge_container .badge_sub_title {
   font-weight: 400;
   color: #152f4e;
-  font-size: 1rem;
+  font-size: 1.3rem;
   text-align: center;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .badges_section {
     gap: 0;
     justify-content: start;

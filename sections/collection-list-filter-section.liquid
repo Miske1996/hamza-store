@@ -1,57 +1,84 @@
-{{ 'collection-list-filter-section.css' |  asset_url |  stylesheet_tag }}
+{{ 'collection-list-filter-section.css' | asset_url | stylesheet_tag }}
 <collection-list-filter>
-<div class="collection_list_filter_section">
+  <div class="collection_list_filter_section">
     <script type="application/json">
-    [{% for p in  section.settings.collection_id.products %}{ "id":{{ p.id  }},"title":"{{ p.title }}","color":"{{ p.metafields.custom.color }}" ,"variant":"{{ p.metafields.custom.variant_id}}","price":"{{ p.price |  money }}","url":"{{ p.url }}","front_image":"{{ p.images[0] |  image_url  }}","back_image":"{{ p.images[1] |  image_url  }}","type":"{{ p.metafields.custom.type_collection}}"}{% if forloop.last %}{% else %},{% endif %}{% endfor %}]
+      [
+    {% for p in  section.settings.collection_id.products %}
+        {
+          "id": {{ p.id }},
+          "title":"{{ p.title }}",
+          "color":"{{ p.metafields.custom.color }}",
+          "variant":"{{ p.metafields.custom.variant_id }}",
+          "price":"{{ p.price |  money }}",
+          "url":"{{ p.url }}",
+          "front_image":"{{ p.images[0] |  image_url }}",
+          "back_image":"{{ p.images[1] |  image_url }}",
+          "type":"{{ p.metafields.custom.type_collection }}"
+        }{% if forloop.last %}{% else %},{% endif %}{% endfor %}
+  ]
     </script>
     <h1 class="title_section">{{ section.settings.collection_id.title }}</h1>
     <div class="filter_container">
-        <div class="colors_picker" {% if section.settings.check_color %}
-            style="visibility:hidden;"
+      <div
+        class="colors_picker"
+        {% if section.settings.check_color %}
+        style="visibility:hidden;"
         {% endif %}>
-            <div class="colors_picker_wrapper">
-                
-            </div>  
-        </div>
-        <div class="collection_tabs_container" {% if section.settings.check_type %}
-            style="visibility:hidden;"
-        {% endif %}>
-        </div>
+        <div class="colors_picker_wrapper"></div>
+      </div>
+      <div
+        class="collection_tabs_container"
+        {% if section.settings.check_type %}
+        style="visibility:hidden;"
+        {% endif %}></div>
     </div>
     <div class="arrows_container">
-            <div class="button_previous"><img src="{{ 'left-chevron.png' |  asset_url }}" alt=""></div>
-            <div class="button_next"><img src="{{ 'left-chevron.png' |  asset_url }}" alt=""></div>
+      <div class="button_previous"><img src="{{ 'left-chevron.png' |  asset_url }}" alt=""></div>
+      <div class="button_next"><img src="{{ 'left-chevron.png' |  asset_url }}" alt=""></div>
     </div>
-    <div class="products_container"> 
-    </div>
+    <div class="products_container {{ section.settings.card_size }}"></div>
     <a class="action_button_collection" href="{{  section.settings.collection_id.url }}">SHOP ALL</a>
-</div>
+  </div>
 </collection-list-filter>
-
+<script>
+    
+</script>
 {% schema %}
-{
+  {
     "name": "Collection List Filter",
     "settings": [
-        {
-            "type": "collection",
-            "id": "collection_id",
-            "label": "Choose the Collection"
-        },
-        {
-            "type": "checkbox",
-            "id": "check_color",
-            "label": "Hide Color Filter"
-        },
-        {
-            "type": "checkbox",
-            "id": "check_type",
-            "label": "Hide Types Filter"
-        }
+      {
+        "type": "radio",
+        "label": "Select Card Size",
+        "id": "card_size",
+        "options": [
+          {
+            "value": "standard",
+            "label": "Standard"
+          }, {
+            "value": "compact",
+            "label": "Compact"
+          }
         ],
-        "presets": [
-            {
-                "name": "Collection List"
-            }
-        ]
-}
+        "default": "standard"
+      }, {
+        "type": "collection",
+        "id": "collection_id",
+        "label": "Choose the Collection"
+      }, {
+        "type": "checkbox",
+        "id": "check_color",
+        "label": "Hide Color Filter"
+      }, {
+        "type": "checkbox",
+        "id": "check_type",
+        "label": "Hide Types Filter"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Collection List"
+      }
+    ]
+  }
 {% endschema %}

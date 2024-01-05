@@ -62,7 +62,7 @@
   font-weight: 300;
   cursor: pointer;
   margin-top: 10px;
-  text-decoration: none;
+  text-decoration: underline;
 }
 .blog_card_section .blogs_list {
   width: 95%;
@@ -126,10 +126,10 @@
   font-weight: 300;
   cursor: pointer;
   width: fit-content;
-  text-decoration: none;
+  text-decoration: underline;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   .blog_card_section {
     height: 150vh;
     padding-top: 8vh;

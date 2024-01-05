@@ -146,7 +146,7 @@
   width: 100%;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 768px) {
   #site-header .left_menu_header_container .menu_title_link {
     display: none;
   }
