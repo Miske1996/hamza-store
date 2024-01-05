@@ -4,7 +4,7 @@
       "menu-drawer-section": {
         "type": "menu-drawer-section",
         "settings": {
-          "main_list": "drawer_menu_2",
+          "main_list": "left_menu",
           "info_list": "info_menu",
           "social_media_list": "drawer_menu_3"
         }
