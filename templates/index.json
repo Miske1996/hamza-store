@@ -25,107 +25,6 @@
         "image_hero": "shopify:\/\/shop_images\/filters_quality_80.webp"
       }
     },
-    "collection-scroll": {
-      "type": "collection-scroll-section",
-      "blocks": {
-        "22df8b39-6ab1-45ba-b751-d97403daf75d": {
-          "type": "CollectionSlide",
-          "settings": {
-            "collection_id": "king-pillowcases"
-          }
-        },
-        "879ab7a5-081e-412d-b50b-73f06580dcb6": {
-          "type": "CollectionSlide",
-          "settings": {
-            "collection_id": "queen-pillowcases"
-          }
-        },
-        "b10f0f17-5b3f-4e86-a5e5-747d3e484678": {
-          "type": "CollectionSlide",
-          "settings": {
-            "collection_id": "queen-pillowcases"
-          }
-        },
-        "7473955c-3d70-4d70-9ba7-dde4208d484d": {
-          "type": "CollectionSlide",
-          "settings": {
-            "collection_id": "queen-pillowcases"
-          }
-        },
-        "e55baa0b-0c5d-4824-aaa4-1df8321d8de9": {
-          "type": "CollectionSlide",
-          "settings": {
-            "collection_id": "queen-pillowcases"
-          }
-        },
-        "fbb63bde-eb92-488c-b0a0-fe922276025f": {
-          "type": "CollectionSlide",
-          "settings": {
-            "collection_id": "queen-pillowcases"
-          }
-        }
-      },
-      "block_order": [
-        "22df8b39-6ab1-45ba-b751-d97403daf75d",
-        "879ab7a5-081e-412d-b50b-73f06580dcb6",
-        "b10f0f17-5b3f-4e86-a5e5-747d3e484678",
-        "7473955c-3d70-4d70-9ba7-dde4208d484d",
-        "e55baa0b-0c5d-4824-aaa4-1df8321d8de9",
-        "fbb63bde-eb92-488c-b0a0-fe922276025f"
-      ],
-      "settings": {
-        "title": "The benefits are real",
-        "subtitle": "Transform your hair and Skin in just 4 nights!",
-        "background_arrows": "#152f4e",
-        "background": "#edf4fd"
-      }
-    },
-    "badges": {
-      "type": "badges-section",
-      "blocks": {
-        "8ab1def6-139e-4556-9e61-de6115c862b2": {
-          "type": "badge",
-          "settings": {
-            "badge_title_id": "TRY IT FOR  60 NIGHTS",
-            "badge_subtitle_id": "No Strings Attached",
-            "badge_image": "shopify:\/\/shop_images\/clock.png"
-          }
-        },
-        "076094f6-ee56-4573-a211-3afce8eac462": {
-          "type": "badge",
-          "settings": {
-            "badge_title_id": "WE PAY YOUR SHIPPING",
-            "badge_subtitle_id": "$ 9.99 $0 from your first purchase",
-            "badge_image": "shopify:\/\/shop_images\/tree.png"
-          }
-        },
-        "8fe6dbf1-301e-4313-9f7d-145db7162262": {
-          "type": "badge",
-          "settings": {
-            "badge_title_id": "BLOOMY CARE+",
-            "badge_subtitle_id": "Easy Returns & After Sales",
-            "badge_image": "shopify:\/\/shop_images\/gift.png"
-          }
-        },
-        "8a2e6bd0-5cd7-4491-b43b-8ac30e094d7e": {
-          "type": "badge",
-          "settings": {
-            "badge_title_id": "A TREE PLANTED FOR YOUR BLOOMY",
-            "badge_subtitle_id": "With Eden Deforestation Project",
-            "badge_image": "shopify:\/\/shop_images\/clock.png"
-          }
-        }
-      },
-      "block_order": [
-        "8ab1def6-139e-4556-9e61-de6115c862b2",
-        "076094f6-ee56-4573-a211-3afce8eac462",
-        "8fe6dbf1-301e-4313-9f7d-145db7162262",
-        "8a2e6bd0-5cd7-4491-b43b-8ac30e094d7e"
-      ],
-      "settings": {
-        "background": "#ffffff"
-      }
-    },
     "featuredOn": {
       "type": "featured-on-section",
       "blocks": {
@@ -175,6 +74,124 @@
         "9075d03a-73de-4f77-b10d-d4b7538569b4"
       ],
       "settings": {
+      }
+    },
+    "collection-scroll": {
+      "type": "collection-scroll-section",
+      "blocks": {
+        "22df8b39-6ab1-45ba-b751-d97403daf75d": {
+          "type": "CollectionSlide",
+          "settings": {
+            "collection_id": "king-pillowcases"
+          }
+        },
+        "879ab7a5-081e-412d-b50b-73f06580dcb6": {
+          "type": "CollectionSlide",
+          "settings": {
+            "collection_id": "queen-pillowcases"
+          }
+        },
+        "b10f0f17-5b3f-4e86-a5e5-747d3e484678": {
+          "type": "CollectionSlide",
+          "settings": {
+            "collection_id": "standard-pillowcases"
+          }
+        },
+        "7473955c-3d70-4d70-9ba7-dde4208d484d": {
+          "type": "CollectionSlide",
+          "settings": {
+            "collection_id": "standard-pillowcases"
+          }
+        },
+        "cb1f59f0-278c-412d-9ca9-ea3447d08c66": {
+          "type": "CollectionSlide",
+          "settings": {
+            "collection_id": "sleep-masks"
+          }
+        },
+        "9f924c53-5302-4635-8268-186d818499a0": {
+          "type": "CollectionSlide",
+          "settings": {
+            "collection_id": ""
+          }
+        },
+        "20499b9c-66c2-4da0-9f19-513477079606": {
+          "type": "CollectionSlide",
+          "settings": {
+            "collection_id": ""
+          }
+        },
+        "525b60ac-8507-4ee8-affb-08f4386aa998": {
+          "type": "CollectionSlide",
+          "settings": {
+            "collection_id": ""
+          }
+        }
+      },
+      "block_order": [
+        "22df8b39-6ab1-45ba-b751-d97403daf75d",
+        "879ab7a5-081e-412d-b50b-73f06580dcb6",
+        "b10f0f17-5b3f-4e86-a5e5-747d3e484678",
+        "7473955c-3d70-4d70-9ba7-dde4208d484d",
+        "cb1f59f0-278c-412d-9ca9-ea3447d08c66",
+        "9f924c53-5302-4635-8268-186d818499a0",
+        "20499b9c-66c2-4da0-9f19-513477079606",
+        "525b60ac-8507-4ee8-affb-08f4386aa998"
+      ],
+      "custom_css": [
+
+      ],
+      "settings": {
+        "title": "The benefits are real",
+        "subtitle": "Transform your hair and Skin in just 4 nights!",
+        "background_arrows": "#000000",
+        "background": "#ffffff"
+      }
+    },
+    "badges": {
+      "type": "badges-section",
+      "blocks": {
+        "8ab1def6-139e-4556-9e61-de6115c862b2": {
+          "type": "badge",
+          "settings": {
+            "badge_title_id": "TRY IT FOR  60 NIGHTS",
+            "badge_subtitle_id": "No Strings Attached",
+            "badge_image": "shopify:\/\/shop_images\/clock.png"
+          }
+        },
+        "076094f6-ee56-4573-a211-3afce8eac462": {
+          "type": "badge",
+          "settings": {
+            "badge_title_id": "WE PAY YOUR SHIPPING",
+            "badge_subtitle_id": "$ 9.99 $0 from your first purchase",
+            "badge_image": "shopify:\/\/shop_images\/tree.png"
+          }
+        },
+        "8fe6dbf1-301e-4313-9f7d-145db7162262": {
+          "type": "badge",
+          "settings": {
+            "badge_title_id": "BLOOMY CARE+",
+            "badge_subtitle_id": "Easy Returns & After Sales",
+            "badge_image": "shopify:\/\/shop_images\/gift.png"
+          }
+        },
+        "8a2e6bd0-5cd7-4491-b43b-8ac30e094d7e": {
+          "type": "badge",
+          "settings": {
+            "badge_title_id": "A TREE PLANTED FOR YOUR BLOOMY",
+            "badge_subtitle_id": "With Eden Deforestation Project",
+            "badge_image": "shopify:\/\/shop_images\/clock.png"
+          }
+        }
+      },
+      "block_order": [
+        "8ab1def6-139e-4556-9e61-de6115c862b2",
+        "076094f6-ee56-4573-a211-3afce8eac462",
+        "8fe6dbf1-301e-4313-9f7d-145db7162262",
+        "8a2e6bd0-5cd7-4491-b43b-8ac30e094d7e"
+      ],
+      "settings": {
+        "background": "#ffffff"
       }
     },
     "collectionListFilter": {
@@ -264,9 +281,9 @@
   },
   "order": [
     "hero",
+    "featuredOn",
     "collection-scroll",
     "badges",
-    "featuredOn",
     "collectionListFilter",
     "giftCard",
     "collectionListFilter2",
