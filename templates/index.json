@@ -79,6 +79,12 @@
     "collection-scroll": {
       "type": "collection-scroll-section",
       "blocks": {
+        "70d1df32-14b5-4859-add3-dff50f3195f4": {
+          "type": "CollectionSlide",
+          "settings": {
+            "collection_id": "silk-pillowcases"
+          }
+        },
         "22df8b39-6ab1-45ba-b751-d97403daf75d": {
           "type": "CollectionSlide",
           "disabled": true,
@@ -105,20 +111,14 @@
           "settings": {
             "collection_id": "sleep-masks"
           }
-        },
-        "70d1df32-14b5-4859-add3-dff50f3195f4": {
-          "type": "CollectionSlide",
-          "settings": {
-            "collection_id": ""
-          }
         }
       },
       "block_order": [
+        "70d1df32-14b5-4859-add3-dff50f3195f4",
         "22df8b39-6ab1-45ba-b751-d97403daf75d",
         "879ab7a5-081e-412d-b50b-73f06580dcb6",
         "7473955c-3d70-4d70-9ba7-dde4208d484d",
-        "cb1f59f0-278c-412d-9ca9-ea3447d08c66",
-        "70d1df32-14b5-4859-add3-dff50f3195f4"
+        "cb1f59f0-278c-412d-9ca9-ea3447d08c66"
       ],
       "custom_css": [
 
