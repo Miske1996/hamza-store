@@ -63,6 +63,11 @@
           "settings": {
             "featuredon_img": "shopify:\/\/shop_images\/feat_item_1.webp"
           }
+        },
+        "1c05e87a-4cc2-4140-a383-5ad0f7aff294": {
+          "type": "featuredOn",
+          "settings": {
+          }
         }
       },
       "block_order": [
@@ -71,7 +76,8 @@
         "29a68070-1cbc-47ca-8bb8-2fb82b528e21",
         "8657c113-af7e-4ecc-841f-fd6b17c67f6b",
         "2fe03861-0e26-4188-9194-dbb204364f77",
-        "9075d03a-73de-4f77-b10d-d4b7538569b4"
+        "9075d03a-73de-4f77-b10d-d4b7538569b4",
+        "1c05e87a-4cc2-4140-a383-5ad0f7aff294"
       ],
       "settings": {
       }
