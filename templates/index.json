@@ -165,9 +165,9 @@
         "title": "Plant a Tree with your Bloomy!",
         "collection_id": "men",
         "image_gift": "shopify:\/\/shop_images\/gift_img.webp",
-        "paragraph": "<p>For every Bloomy, we'll plant a tree in partnership with the Eden Deforestation Project. Applies to all products including gift cards.<\/p>",
-        "color_text": "#ffffff",
-        "background": "#013139"
+        "paragraph": "<p><strong>The best for your hair, skin & the planet &lt;3<\/strong><\/p><p>For every Bloomy, we'll plant a tree in partnership with the Eden Deforestation Project. Applies to all our selection including gift cards<\/p>",
+        "color_text": "#fff",
+        "background": "#000000"
       }
     },
     "collectionListFilter2": {
