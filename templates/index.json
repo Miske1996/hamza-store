@@ -162,10 +162,10 @@
     "giftCard": {
       "type": "gift-card-section",
       "settings": {
-        "title": "Your gifts up to 20% off",
+        "title": "Buy 3 Get 1 Free",
         "collection_id": "men",
         "image_gift": "shopify:\/\/shop_images\/gift_img.webp",
-        "paragraph": "<h2><strong>Refer a friend & receive €15 discount each<\/strong><\/h2><p>Share your referral link with your friends and family so they can take advantage of it, and receive a €15 discount on their first order (valid from €150 purchase on jott ).<\/p>",
+        "paragraph": "",
         "color_text": "#ffffff",
         "background": "#4a7077"
       }
