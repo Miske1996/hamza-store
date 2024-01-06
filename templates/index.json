@@ -194,9 +194,9 @@
       "type": "collection-list-filter-section",
       "settings": {
         "card_size": "standard",
-        "collection_id": "jackets-collection",
+        "collection_id": "silk-pillowcases",
         "check_color": false,
-        "check_type": false
+        "check_type": true
       }
     },
     "giftCard2": {
