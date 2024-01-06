@@ -196,7 +196,7 @@
         "card_size": "standard",
         "collection_id": "silk-pillowcases",
         "check_color": false,
-        "check_type": true
+        "check_type": false
       }
     },
     "giftCard2": {
@@ -279,6 +279,15 @@
       "settings": {
         "background": "#ffffff"
       }
+    },
+    "e5748639-0a05-43a2-953f-8b98f6ce7ef0": {
+      "type": "collection-list-filter-section",
+      "settings": {
+        "card_size": "standard",
+        "collection_id": "",
+        "check_color": false,
+        "check_type": false
+      }
     }
   },
   "order": [
@@ -293,6 +302,7 @@
     "giftCard2",
     "blogCard",
     "aboutUsCards",
-    "badges"
+    "badges",
+    "e5748639-0a05-43a2-953f-8b98f6ce7ef0"
   ]
 }
