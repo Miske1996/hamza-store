@@ -159,15 +159,14 @@
         "check_type": false
       }
     },
-    "giftCard": {
+    "43074846-d6ce-4213-9b80-730bd247ac1e": {
       "type": "gift-card-section",
       "settings": {
-        "title": "Plant a Tree with your Bloomy!",
-        "collection_id": "men",
-        "image_gift": "shopify:\/\/shop_images\/6476c776d3fd3c906c7d0e10_P3-Carousel-1.webp",
-        "paragraph": "<p><strong>Silk Comes from mother nature, so we make sure to pay back &lt;3!<\/strong><\/p><p>For every Bloomy, we'll plant a tree in partnership with the Eden Deforestation Project. Applies to all our selection including gift cards.<\/p>",
-        "color_text": "#fff",
-        "background": "#000000"
+        "title": "Your gifts up to 20% off",
+        "collection_id": "",
+        "paragraph": "",
+        "color_text": "#FFFFFF",
+        "background": "#4a7077"
       }
     },
     "collectionListFilter2": {
@@ -186,41 +185,6 @@
         "collection_id": "silk-pillowcases",
         "check_color": false,
         "check_type": false
-      }
-    },
-    "giftCard2": {
-      "type": "gift-card-section",
-      "settings": {
-        "title": "Your gifts up to 20% off",
-        "collection_id": "",
-        "image_gift": "shopify:\/\/shop_images\/filters_quality_80.webp",
-        "paragraph": "<h2><strong>Refer a friend & receive €15 discount each<\/strong><\/h2><h2><\/h2><p>Share your referral link with your friends and family so they can take advantage of it, and receive a €15 discount on their first<\/p>",
-        "color_text": "#ffffff",
-        "background": "#4a7077"
-      }
-    },
-    "blogCard": {
-      "type": "blog-card-section",
-      "settings": {
-        "blog_main": "news\/melanie-grant",
-        "blog_1": "news\/melanie-grant",
-        "blog_2": "news\/melanie-grant",
-        "blog_3": "news\/melanie-grant",
-        "color_text": "#ffffff",
-        "background": "#000000"
-      }
-    },
-    "aboutUsCards": {
-      "type": "about-us-cards-section",
-      "settings": {
-        "title_card_1": "Our Stores",
-        "sub_title_1": "Nearest to your home",
-        "background_img_1": "shopify:\/\/shop_images\/about_us_fle.jpg",
-        "button_url_1": "",
-        "title_card_2": "Our Stores",
-        "sub_title_2": "Nearest to your home",
-        "background_img_2": "shopify:\/\/shop_images\/about_us_fle.jpg",
-        "button_url_2": ""
       }
     },
     "giftCardReverse": {
@@ -280,13 +244,39 @@
         "background": "#ffffff"
       }
     },
-    "e5748639-0a05-43a2-953f-8b98f6ce7ef0": {
-      "type": "collection-list-filter-section",
+    "giftCard": {
+      "type": "gift-card-section",
       "settings": {
-        "card_size": "standard",
-        "collection_id": "",
-        "check_color": false,
-        "check_type": false
+        "title": "Plant a Tree with your Bloomy!",
+        "collection_id": "men",
+        "image_gift": "shopify:\/\/shop_images\/6476c776d3fd3c906c7d0e10_P3-Carousel-1.webp",
+        "paragraph": "<p><strong>Silk Comes from mother nature, so we make sure to pay back &lt;3!<\/strong><\/p><p>For every Bloomy, we'll plant a tree in partnership with the Eden Deforestation Project. Applies to all our selection including gift cards.<\/p>",
+        "color_text": "#ffffff",
+        "background": "#000000"
+      }
+    },
+    "aboutUsCards": {
+      "type": "about-us-cards-section",
+      "settings": {
+        "title_card_1": "Our Stores",
+        "sub_title_1": "Nearest to your home",
+        "background_img_1": "shopify:\/\/shop_images\/about_us_fle.jpg",
+        "button_url_1": "",
+        "title_card_2": "Our Stores",
+        "sub_title_2": "Nearest to your home",
+        "background_img_2": "shopify:\/\/shop_images\/about_us_fle.jpg",
+        "button_url_2": ""
+      }
+    },
+    "blogCard": {
+      "type": "blog-card-section",
+      "settings": {
+        "blog_main": "news\/melanie-grant",
+        "blog_1": "news\/melanie-grant",
+        "blog_2": "news\/melanie-grant",
+        "blog_3": "news\/melanie-grant",
+        "color_text": "#ffffff",
+        "background": "#000000"
       }
     }
   },
@@ -295,14 +285,13 @@
     "featuredOn",
     "collection-scroll",
     "collectionListFilter",
-    "giftCard",
+    "43074846-d6ce-4213-9b80-730bd247ac1e",
     "collectionListFilter2",
     "collectionListFilter3",
-    "giftCard2",
-    "blogCard",
-    "aboutUsCards",
     "giftCardReverse",
     "badges",
-    "e5748639-0a05-43a2-953f-8b98f6ce7ef0"
+    "giftCard",
+    "aboutUsCards",
+    "blogCard"
   ]
 }
