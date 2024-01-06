@@ -24,6 +24,7 @@
   margin-top: 5vh;
   display: flex;
   overflow-x: scroll;
+  z-index: 2;
   /* Hide scrollbar for Chrome, Safari and Opera */
   /* Hide scrollbar for IE, Edge and Firefox */
 }
@@ -67,6 +68,7 @@
   left: 50%;
   transform: translate(-50%, 0%);
   align-items: center;
+  z-index: 1;
 }
 .collection_scroll_section .scroll_arrows_container .left_arrow {
   width: 36px;

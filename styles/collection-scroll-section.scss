@@ -26,6 +26,7 @@
         margin-top: 5vh;
         display: flex;
         overflow-x: scroll;
+        z-index: 2;
         /* Hide scrollbar for Chrome, Safari and Opera */
         &::-webkit-scrollbar {
             display: none;
@@ -72,6 +73,7 @@
         left: 50%;
         transform: translate(-50%,-0%);
         align-items: center;
+        z-index: 1;
         .left_arrow{
             width: 36px;
             height: 36px;

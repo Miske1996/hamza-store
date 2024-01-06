@@ -1,22 +1,27 @@
 {{ 'collection-list-filter-section.css' | asset_url | stylesheet_tag }}
 <collection-list-filter>
   <div class="collection_list_filter_section">
+  
     <script type="application/json">
-      [
-    {% for p in  section.settings.collection_id.products %}
-        {
-          "id": {{ p.id }},
-          "title":"{{ p.title }}",
-          "color":"{{ p.metafields.custom.color }}",
-          "variant":"{{ p.metafields.custom.variant_id }}",
-          "price":"{{ p.price |  money }}",
-          "url":"{{ p.url }}",
-          "front_image":"{{ p.images[0] |  image_url }}",
-          "back_image":"{{ p.images[1] |  image_url }}",
-          "type":"{{ p.metafields.custom.type_collection }}"
-        }{% if forloop.last %}{% else %},{% endif %}{% endfor %}
+  [
+    {% for p in section.settings.collection_id.products %}
+      {
+        "id": {{ p.id }},
+        "title": "{{ p.title }}",
+        "color": "{{ p.metafields.custom.color }}",
+        "variant": "{{ p.metafields.custom.variant_id }}",
+        "price": "{{ p.price | money }}",
+        "url": "{{ p.url }}",
+        "front_image": "{{ p.images[0] | image_url }}",
+        "back_image": "{{ p.images[1] | image_url }}",
+        "type": "{{ p.metafields.custom.type_collection }}",
+        "tags": [{{ p.metafields.custom.tags  }}]
+        
+      }{% if forloop.last %}{% else %},{% endif %}
+    {% endfor %}
   ]
-    </script>
+</script>
+  
     <h1 class="title_section">{{ section.settings.collection_id.title }}</h1>
     <div class="filter_container">
       <div

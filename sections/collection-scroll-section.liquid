@@ -5,7 +5,7 @@
     <div class="section_sub_title">{{ section.settings.subtitle }}</div>
     <div class="collections_list_scroll">
         {% for block in section.blocks %}
-            <a class="collection_card">
+            <a class="collection_card" href="{{ block.settings.collection_id.url }}" style="text-decoration: none;">
                 <img src="{{ block.settings.collection_id.featured_image |  image_url  }}" alt="">
                 <span class="title_collection_card">{{ block.settings.collection_id.title }}</span>
             </a>

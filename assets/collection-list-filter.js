@@ -6,9 +6,32 @@ if (!customElements.get('collection-list-filter')) {
                 super();
 
                 this.initScrollButtons();
-    
+
                 this.products = JSON.parse(this.querySelector('script[type="application/json"]').innerHTML);
-                console.log(this.products)
+                // Assuming this.products is an array of products with a 'tags' property
+                // PRODUCT TAGS CODE  
+                this.products.forEach(function (product) {
+                    if (Array.isArray(product.tags) && product.tags.length > 0) {
+                        // Assuming product.tags is an array with a single element
+                        var tagsData = product.tags[0];
+
+                        product.tags = tagsData
+                            .filter(function (tag) {
+                                return typeof tag === 'string' && tag.includes(',');
+                            })
+                            .map(function (tag) {
+                                var tagParts = tag.split(',');
+                                return {
+                                    label: tagParts[0],
+                                    color: tagParts[1]
+                                };
+                            });
+                    }
+                });
+
+                console.log(this.products);
+
+
                 // Extract unique colors from products
                 this.uniqueColorsFilter = [...new Set(this.products.map(product => product.color))];
 
@@ -39,44 +62,43 @@ if (!customElements.get('collection-list-filter')) {
             sizeCardInit() {
                 const productsContainer = this.querySelector('.products_container');
                 const currentCardSize = productsContainer.classList.contains('compact') ? 'compact' : 'standard';
-            
+
                 // Check if the screen width is below 768px
                 if (window.innerWidth <= 768 && window.innerWidth >= 430) {
                     // Reset styles or make adjustments as needed for smaller screens
                     productsContainer.style.height = '70vh'; // Reset height
                     productsContainer.style.gap = '3%'; // Reset gap
-            
+
                     let products = productsContainer.querySelectorAll('.product_card');
-            
+
                     products.forEach((product) => {
                         product.style.width = '40%'; // Reset width
                     });
-                }else if(window.innerWidth < 430){
+                } else if (window.innerWidth < 430) {
                     // Reset styles or make adjustments as needed for smaller screens
                     productsContainer.style.height = '70vh'; // Reset height
                     productsContainer.style.gap = '3%'; // Reset gap
-            
+
                     let products = productsContainer.querySelectorAll('.product_card');
-            
+
                     products.forEach((product) => {
                         product.style.width = '100%'; // Reset width
                     });
-                }
-                 else {
+                } else {
                     // Apply compact styles for larger screens
                     if (currentCardSize == 'compact') {
                         productsContainer.style.height = 80 / 1.3 + 'vh';
                         productsContainer.style.gap = '2%';
-            
+
                         let products = productsContainer.querySelectorAll('.product_card');
-            
+
                         products.forEach((product) => {
                             product.style.width = '23%';
                         });
                     }
                 }
             }
-            
+
             initColorFilter() {
                 const colorContainerWrapper = this.querySelector('.colors_picker_wrapper');
 
@@ -105,14 +127,14 @@ if (!customElements.get('collection-list-filter')) {
                 let collection_tabs = this.querySelectorAll(".collection_tab");
                 collection_tabs.forEach((collection_tab, key) => {
                     collection_tab.addEventListener('click', () => {
-                        if(this.chosen_type == this.uniqueTypesFilter[key]){
+                        if (this.chosen_type == this.uniqueTypesFilter[key]) {
                             // Remove the type filter
                             this.chosen_type = "";
                             // Update borders for collection tabs
                             collection_tabs.forEach((c, index) => {
-                            c.style.borderBottom = index === key ? '0px solid #152f4e' : 'none';
-                        }   );
-                        }else{
+                                c.style.borderBottom = index === key ? '0px solid #152f4e' : 'none';
+                            });
+                        } else {
                             this.chosen_type = this.uniqueTypesFilter[key];
                             // Update borders for collection tabs
                             collection_tabs.forEach((c, index) => {
@@ -145,22 +167,26 @@ if (!customElements.get('collection-list-filter')) {
                             const productCard = document.createElement('div');
                             productCard.classList.add('product_card');
                             productCard.innerHTML = `
-                    <div class="product_images_container">
-                        <img src="${variantProducts[0].front_image}"  alt="" class="top">
-                        <img src="${variantProducts[0].back_image}" alt="" class="bottom">
-                    </div>
-                    <span class="product_badge">BEST SELLER</span>
-                    <a class="product_title">${variantProducts[0].title}</a>
-                    <div class="bottom_container">
-                        ${variantProducts.map(product => `<a class="color_product" href="${product.url}" style="background-color: ${product.color}"></a>`).join('')}
-                        <span class="see_more">See more</span>
-                        <span class="price_product">${variantProducts[0].price}</span>
-                    </div>
-                `;
+                        <div class="product_images_container">
+                            <img src="${variantProducts[0].front_image}" alt="" class="top">
+                            <img src="${variantProducts[0].back_image}" alt="" class="bottom">
+                        </div>
+                        ${
+                            variantProducts[0].tags && variantProducts[0].tags.length > 0
+                                ? `<span class="product_badge">${variantProducts[0].tags.map((tag, index) => `<span style="color:${tag.color}; margin-left:${index === 0 ? '0' : '0.42vw'};">${tag.label}</span>`).join('')}</span>`
+                                : ''
+                        }
+                        <a class="product_title" href="${variantProducts[0].url}" style="text-decoration:none;">${variantProducts[0].title}</a>
+                        <div class="bottom_container">
+                            ${variantProducts.map(product => `<a class="color_product" href="${product.url}" style="background-color: ${product.color}"></a>`).join('')}
+                            <span class="see_more">See more</span>
+                            <span class="price_product">${variantProducts[0].price}</span>
+                        </div>
+                    `;
                             productsContainer.appendChild(productCard);
                         }
 
-                        
+
                     });
                 });
             }
@@ -175,14 +201,14 @@ if (!customElements.get('collection-list-filter')) {
                         if (this.chosen_color === this.uniqueColorsFilter[key]) {
                             // Remove the border first
                             color.style.border = '';
-                        
+
                             // Remove the color filter
                             this.chosen_color = "";
                             title_section.style.color = "black"; // Set back to default color or remove this line if not needed
                             buttonNext.style.backgroundColor = "black"; // Set back to default color or remove this line if not needed
                             buttonPrevious.style.backgroundColor = "black"; // Set back to default color or remove this line if not needed
-                             // Update borders for color containers
-                             color_container.forEach((c, index) => {
+                            // Update borders for color containers
+                            color_container.forEach((c, index) => {
                                 c.style.border = index === key ? `0px solid ${this.uniqueColorsFilter[key]}` : 'none';
                             });
                         } else {
@@ -191,12 +217,12 @@ if (!customElements.get('collection-list-filter')) {
                             buttonNext.style.backgroundColor = this.uniqueColorsFilter[key];
                             buttonPrevious.style.backgroundColor = this.uniqueColorsFilter[key];
                             this.chosen_color = this.uniqueColorsFilter[key];
-                             // Update borders for color containers
+                            // Update borders for color containers
                             color_container.forEach((c, index) => {
                                 c.style.border = index === key ? `1px solid ${this.uniqueColorsFilter[key]}` : 'none';
                             });
                         }
-                        
+
 
                         // Filter products based on chosen color and type
                         const filteredProducts = this.products.filter(product => {
@@ -225,22 +251,26 @@ if (!customElements.get('collection-list-filter')) {
                             const productCard = document.createElement('div');
                             productCard.classList.add('product_card');
                             productCard.innerHTML = `
-                    <div class="product_images_container">
-                        <img src="${variantProducts[0].front_image}"  alt="" class="top">
-                        <img src="${variantProducts[0].back_image}" alt="" class="bottom">
-                    </div>
-                    <span class="product_badge">BEST SELLER</span>
-                    <a class="product_title">${variantProducts[0].title}</a>
-                    <div class="bottom_container">
-                        ${variantProducts.map(product => `<a class="color_product" href="${product.url}" style="background-color: ${product.color}"></a>`).join('')}
-                        <span class="see_more">See more</span>
-                        <span class="price_product">${variantProducts[0].price}</span>
-                    </div>
-                `;
+                        <div class="product_images_container">
+                            <img src="${variantProducts[0].front_image}" alt="" class="top">
+                            <img src="${variantProducts[0].back_image}" alt="" class="bottom">
+                        </div>
+                        ${
+                            variantProducts[0].tags && variantProducts[0].tags.length > 0
+                                ? `<span class="product_badge">${variantProducts[0].tags.map((tag, index) => `<span style="color:${tag.color}; margin-left:${index === 0 ? '0' : '0.42vw'};">${tag.label}</span>`).join('')}</span>`
+                                : ''
+                        }
+                        <a class="product_title" href="${variantProducts[0].url}" style="text-decoration:none;">${variantProducts[0].title}</a>
+                        <div class="bottom_container">
+                            ${variantProducts.map(product => `<a class="color_product" href="${product.url}" style="background-color: ${product.color}"></a>`).join('')}
+                            <span class="see_more">See more</span>
+                            <span class="price_product">${variantProducts[0].price}</span>
+                        </div>
+                    `;
                             productsContainer.appendChild(productCard);
                         }
 
-                       
+
                     });
                 });
             }
@@ -264,18 +294,22 @@ if (!customElements.get('collection-list-filter')) {
                     const productCard = document.createElement('div');
                     productCard.classList.add('product_card');
                     productCard.innerHTML = `
-                <div class="product_images_container">
-                    <img src="${variantProducts[0].front_image}"  alt="" class="top">
-                    <img src="${variantProducts[0].back_image}" alt="" class="bottom">
-                </div>
-                <span class="product_badge">BEST SELLER</span>
-                <a class="product_title">${variantProducts[0].title}</a>
-                <div class="bottom_container">
-                    ${variantProducts.map(product => `<a class="color_product" href="${product.url}" style="background-color: ${product.color}"></a>`).join('')}
-                    <span class="see_more">See more</span>
-                    <span class="price_product">${variantProducts[0].price}</span>
-                </div>
-            `;
+                        <div class="product_images_container">
+                            <img src="${variantProducts[0].front_image}" alt="" class="top">
+                            <img src="${variantProducts[0].back_image}" alt="" class="bottom">
+                        </div>
+                        ${
+                            variantProducts[0].tags && variantProducts[0].tags.length > 0
+                                ? `<span class="product_badge">${variantProducts[0].tags.map((tag, index) => `<span style="color:${tag.color}; margin-left:${index === 0 ? '0' : '0.42vw'};">${tag.label}</span>`).join('')}</span>`
+                                : ''
+                        }
+                        <a class="product_title" href="${variantProducts[0].url}" style="text-decoration:none;">${variantProducts[0].title}</a>
+                        <div class="bottom_container">
+                            ${variantProducts.map(product => `<a class="color_product" href="${product.url}" style="background-color: ${product.color}"></a>`).join('')}
+                            <span class="see_more">See more</span>
+                            <span class="price_product">${variantProducts[0].price}</span>
+                        </div>
+                    `;
                     productsContainer.appendChild(productCard);
                 }
             }
@@ -290,10 +324,10 @@ if (!customElements.get('collection-list-filter')) {
                 const updateArrowVisibility = () => {
                     const isAtStart = productsContainer.scrollLeft === 0;
                     const isAtEnd = productsContainer.scrollLeft + productsContainer.clientWidth >= productsContainer.scrollWidth;
-                
+
                     buttonPrevious.style.opacity = isAtStart ? 0 : 1;
                     buttonNext.style.opacity = isAtEnd ? 0 : 1;
-                
+
                 };
 
                 // Event listener for scroll changes
@@ -318,12 +352,12 @@ if (!customElements.get('collection-list-filter')) {
 
                 // Initial check for arrow visibility
                 updateArrowVisibility();
-                document.addEventListener("DOMContentLoaded", function() {
+                document.addEventListener("DOMContentLoaded", function () {
                     if (productsContainer.scrollWidth > productsContainer.clientWidth) {
                         buttonNext.style.opacity = 1;
                     }
                 });
-               
+
             }
         }
     )
