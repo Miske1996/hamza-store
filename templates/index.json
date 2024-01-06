@@ -162,12 +162,12 @@
     "giftCard": {
       "type": "gift-card-section",
       "settings": {
-        "title": "Buy 3 Get 1 Free",
+        "title": "Plant a Tree with your Bloomy!",
         "collection_id": "men",
         "image_gift": "shopify:\/\/shop_images\/gift_img.webp",
-        "paragraph": "",
+        "paragraph": "<p>For every Bloomy, we'll plant a tree in partnership with the Eden Deforestation Project. Applies to all products including gift cards.<\/p>",
         "color_text": "#ffffff",
-        "background": "#4a7077"
+        "background": "#013139"
       }
     },
     "collectionListFilter2": {
