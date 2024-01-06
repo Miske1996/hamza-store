@@ -164,8 +164,8 @@
       "settings": {
         "title": "Plant a Tree with your Bloomy!",
         "collection_id": "men",
-        "image_gift": "shopify:\/\/shop_images\/gift_img.webp",
-        "paragraph": "<p><strong>The best for your hair, skin & the planet &lt;3<\/strong><\/p><p>For every Bloomy, we'll plant a tree in partnership with the Eden Deforestation Project. Applies to all our selection including gift cards<\/p>",
+        "image_gift": "shopify:\/\/shop_images\/6476c776d3fd3c906c7d0e10_P3-Carousel-1.webp",
+        "paragraph": "<p><strong>Silk Comes from mother nature, so we make sure to pay back &lt;3!<\/strong><\/p><p>For every Bloomy, we'll plant a tree in partnership with the Eden Deforestation Project. Applies to all our selection including gift cards.<\/p>",
         "color_text": "#fff",
         "background": "#000000"
       }
@@ -177,17 +177,6 @@
         "collection_id": "jackets-collection",
         "check_color": false,
         "check_type": false
-      }
-    },
-    "giftCardReverse": {
-      "type": "gift-card-reverse-section",
-      "settings": {
-        "title": "Your gifts up to 20% off",
-        "collection_id": "jackets-collection",
-        "image_gift": "shopify:\/\/shop_images\/gift_img.webp",
-        "paragraph": "<h2><strong>Refer a friend & receive €15 discount each<\/strong><\/h2><p><\/p><p>Share your referral link with your friends and family so they can take advantage of it, and receive a €15 discount on their first<\/p>",
-        "color_text": "#ffffff",
-        "background": "#4a7077"
       }
     },
     "collectionListFilter3": {
@@ -232,6 +221,17 @@
         "sub_title_2": "Nearest to your home",
         "background_img_2": "shopify:\/\/shop_images\/about_us_fle.jpg",
         "button_url_2": ""
+      }
+    },
+    "giftCardReverse": {
+      "type": "gift-card-reverse-section",
+      "settings": {
+        "title": "Your gifts up to 20% off",
+        "collection_id": "jackets-collection",
+        "image_gift": "shopify:\/\/shop_images\/gift_img.webp",
+        "paragraph": "<h2><strong>Refer a friend & receive €15 discount each<\/strong><\/h2><p><\/p><p>Share your referral link with your friends and family so they can take advantage of it, and receive a €15 discount on their first<\/p>",
+        "color_text": "#ffffff",
+        "background": "#4a7077"
       }
     },
     "badges": {
@@ -297,11 +297,11 @@
     "collectionListFilter",
     "giftCard",
     "collectionListFilter2",
-    "giftCardReverse",
     "collectionListFilter3",
     "giftCard2",
     "blogCard",
     "aboutUsCards",
+    "giftCardReverse",
     "badges",
     "e5748639-0a05-43a2-953f-8b98f6ce7ef0"
   ]
