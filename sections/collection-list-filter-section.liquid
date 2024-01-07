@@ -15,7 +15,9 @@
         "front_image": "{{ p.images[0] | image_url }}",
         "back_image": "{{ p.images[1] | image_url }}",
         "type": "{{ p.metafields.custom.type_collection }}",
-        "tags": [{{ p.metafields.custom.tags  }}]
+        "tags": [{{ p.metafields.custom.tags  }}],
+        "collection": "{{ section.settings.collection_id.title }}",
+        "type_tag": [{{ p.metafields.custom.collections_tags}}]
         
       }{% if forloop.last %}{% else %},{% endif %}
     {% endfor %}

@@ -11,7 +11,7 @@ if (!customElements.get('collection-list-filter')) {
                 // Assuming this.products is an array of products with a 'tags' property
                 // PRODUCT TAGS CODE  
                 this.products.forEach(function (product) {
-                    if (Array.isArray(product.tags) && product.tags.length > 0) {
+                    if (Array.isArray(product.tags) && product.tags.length > 0 && Array.isArray(product.tags) && product.tags.length < 3) {
                         // Assuming product.tags is an array with a single element
                         var tagsData = product.tags[0];
 
@@ -29,15 +29,41 @@ if (!customElements.get('collection-list-filter')) {
                     }
                 });
 
-                console.log(this.products);
+                
+                // Specific collection type
+                this.products.forEach(function (product) {
+                    if (Array.isArray(product.type_tag) && product.type_tag.length > 0) {
+                        // Assuming product.tags is an array with a single element
+                        var tagsData = product.type_tag[0];
 
-
+                        product.type_tag = tagsData
+                            .filter(function (tag) {
+                                return typeof tag === 'string' && tag.includes(',');
+                            })
+                            .map(function (tag) {
+                                var tagParts = tag.split(',');
+                                return {
+                                    collection: tagParts[0],
+                                    type: tagParts[1]
+                                };
+                            });
+                    }
+                });
+                console.log(this.products)
                 // Extract unique colors from products
                 this.uniqueColorsFilter = [...new Set(this.products.map(product => product.color))];
 
                 // Extract types from products
-                this.uniqueTypesFilter = [...new Set(this.products.map(product => product.type))];
-                console.log(this.products)
+                this.uniqueTypesFilter = [...new Set(this.products.flatMap(product => {
+                    if (product.type_tag && Array.isArray(product.type_tag)) {
+                        const matchingTags = product.type_tag.filter(tag => tag.collection === product.collection);
+                        matchingTags.map(tag => product.type = tag.type);
+                        return matchingTags.map(tag => tag.type);
+                    }
+                    return [];
+                }))];
+
+                
                 this.initColorFilter();
                 this.initTypeFilter();
 
@@ -46,7 +72,22 @@ if (!customElements.get('collection-list-filter')) {
 
                 this.chosen_type = ""
                 this.chosen_color = ""
-
+                //Colors global variant 
+                // Group products by variant ID
+                this.productsByVariant = {};
+                this.products.forEach(product => {
+                    let variantId = product.variant;
+                
+                    // If variantId is empty, set it to product title
+                    if (!variantId) {
+                        variantId = product.title;
+                    }
+                
+                    if (!this.productsByVariant[variantId]) {
+                        this.productsByVariant[variantId] = [];
+                    }
+                    this.productsByVariant[variantId].push(product);
+                });
                 this.initCardsProducts();
 
                 //Code for CARD SIZE 
@@ -56,7 +97,6 @@ if (!customElements.get('collection-list-filter')) {
                     // Call the sizeCardInit method when the window is resized
                     this.sizeCardInit();
                 });
-
 
             }
             sizeCardInit() {
@@ -87,7 +127,9 @@ if (!customElements.get('collection-list-filter')) {
                 } else {
                     // Apply compact styles for larger screens
                     if (currentCardSize == 'compact') {
-                        productsContainer.style.height = 80 / 1.3 + 'vh';
+                        productsContainer.querySelectorAll(".product_images_container").forEach((c)=>{
+                            c.style.height = 80 / 1.5 + 'vh';
+                        })
                         productsContainer.style.gap = '2%';
 
                         let products = productsContainer.querySelectorAll('.product_card');
@@ -151,10 +193,16 @@ if (!customElements.get('collection-list-filter')) {
                         const productsContainer = this.querySelector('.products_container');
                         productsContainer.innerHTML = '';
 
-                        // Group filtered products by variant ID
+                         // Group products by variant ID
                         const productsByVariant = {};
                         filteredProducts.forEach(product => {
-                            const variantId = product.variant;
+                            let variantId = product.variant;
+                        
+                            // If variantId is empty, set it to product title
+                            if (!variantId) {
+                                variantId = product.title;
+                            }
+                        
                             if (!productsByVariant[variantId]) {
                                 productsByVariant[variantId] = [];
                             }
@@ -164,26 +212,43 @@ if (!customElements.get('collection-list-filter')) {
                         // Create product cards dynamically for the filtered products
                         for (const variantId in productsByVariant) {
                             const variantProducts = productsByVariant[variantId];
-                            const productCard = document.createElement('div');
-                            productCard.classList.add('product_card');
-                            productCard.innerHTML = `
-                        <div class="product_images_container">
-                            <img src="${variantProducts[0].front_image}" alt="" class="top">
-                            <img src="${variantProducts[0].back_image}" alt="" class="bottom">
-                        </div>
-                        ${
-                            variantProducts[0].tags && variantProducts[0].tags.length > 0
-                                ? `<span class="product_badge">${variantProducts[0].tags.map((tag, index) => `<span style="color:${tag.color}; margin-left:${index === 0 ? '0' : '0.42vw'};">${tag.label}</span>`).join('')}</span>`
-                                : ''
-                        }
-                        <a class="product_title" href="${variantProducts[0].url}" style="text-decoration:none;">${variantProducts[0].title}</a>
-                        <div class="bottom_container">
-                            ${variantProducts.map(product => `<a class="color_product" href="${product.url}" style="background-color: ${product.color}"></a>`).join('')}
-                            <span class="see_more">See more</span>
-                            <span class="price_product">${variantProducts[0].price}</span>
-                        </div>
-                    `;
-                            productsContainer.appendChild(productCard);
+                            variantProducts.forEach((product, index) => {
+                                const productCard = document.createElement('div');
+                                productCard.classList.add('product_card');
+                                productCard.innerHTML = `
+                                    <div class="product_images_container">
+                                        <img src="${product.front_image}" alt="" class="top">
+                                        <img src="${product.back_image}" alt="" class="bottom">
+                                    </div>
+                                    ${
+                                        product.tags && product.tags.length > 0
+                                            ? `<span class="product_badge">${product.tags.map((tag, index) => `<span style="color:${tag.color}; margin-left:${index === 0 ? '0' : '0.42vw'};">${tag.label}</span>`).join('')}</span>`
+                                            : ''
+                                    }
+                                    <a class="product_title" href="${product.url}" style="text-decoration:none;">${product.title}</a>
+                                    <div class="bottom_container">
+                                        ${this.productsByVariant[variantId].map(product => `<a class="color_product" href="${product.url}" style="background-color: ${product.color}"></a>`).join('')}
+                                        <span class="see_more">See more</span>
+                                        <span class="price_product">${product.price}</span>
+                                    </div>
+                                `;
+                                productsContainer.appendChild(productCard);
+                            });
+
+                    const currentCardSize = productsContainer.classList.contains('compact') ? 'compact' : 'standard';
+                    // Apply compact styles for larger screens
+                    if (currentCardSize == 'compact') {
+                        productsContainer.querySelectorAll(".product_images_container").forEach((c)=>{
+                            c.style.height = 80 / 1.5 + 'vh';
+                        })
+                        productsContainer.style.gap = '2%';
+
+                        let products = productsContainer.querySelectorAll('.product_card');
+
+                        products.forEach((product) => {
+                            product.style.width = '23%';
+                        });
+                    }
                         }
 
 
@@ -238,7 +303,13 @@ if (!customElements.get('collection-list-filter')) {
                         // Group filtered products by variant ID
                         const productsByVariant = {};
                         filteredProducts.forEach(product => {
-                            const variantId = product.variant;
+                            let variantId = product.variant;
+                
+                            // If variantId is empty, set it to product title
+                            if (!variantId) {
+                                variantId = product.title;
+                            }
+                        
                             if (!productsByVariant[variantId]) {
                                 productsByVariant[variantId] = [];
                             }
@@ -248,26 +319,43 @@ if (!customElements.get('collection-list-filter')) {
                         // Create product cards dynamically for the filtered products
                         for (const variantId in productsByVariant) {
                             const variantProducts = productsByVariant[variantId];
-                            const productCard = document.createElement('div');
-                            productCard.classList.add('product_card');
-                            productCard.innerHTML = `
-                        <div class="product_images_container">
-                            <img src="${variantProducts[0].front_image}" alt="" class="top">
-                            <img src="${variantProducts[0].back_image}" alt="" class="bottom">
-                        </div>
-                        ${
-                            variantProducts[0].tags && variantProducts[0].tags.length > 0
-                                ? `<span class="product_badge">${variantProducts[0].tags.map((tag, index) => `<span style="color:${tag.color}; margin-left:${index === 0 ? '0' : '0.42vw'};">${tag.label}</span>`).join('')}</span>`
-                                : ''
-                        }
-                        <a class="product_title" href="${variantProducts[0].url}" style="text-decoration:none;">${variantProducts[0].title}</a>
-                        <div class="bottom_container">
-                            ${variantProducts.map(product => `<a class="color_product" href="${product.url}" style="background-color: ${product.color}"></a>`).join('')}
-                            <span class="see_more">See more</span>
-                            <span class="price_product">${variantProducts[0].price}</span>
-                        </div>
-                    `;
-                            productsContainer.appendChild(productCard);
+                            variantProducts.forEach((product, index) => {
+                                const productCard = document.createElement('div');
+                                productCard.classList.add('product_card');
+                                productCard.innerHTML = `
+                                    <div class="product_images_container">
+                                        <img src="${product.front_image}" alt="" class="top">
+                                        <img src="${product.back_image}" alt="" class="bottom">
+                                    </div>
+                                    ${
+                                        product.tags && product.tags.length > 0
+                                            ? `<span class="product_badge">${product.tags.map((tag, index) => `<span style="color:${tag.color}; margin-left:${index === 0 ? '0' : '0.42vw'};">${tag.label}</span>`).join('')}</span>`
+                                            : ''
+                                    }
+                                    <a class="product_title" href="${product.url}" style="text-decoration:none;">${product.title}</a>
+                                    <div class="bottom_container">
+                                        ${this.productsByVariant[variantId].map(product => `<a class="color_product" href="${product.url}" style="background-color: ${product.color}"></a>`).join('')}
+                                        <span class="see_more">See more</span>
+                                        <span class="price_product">${product.price}</span>
+                                    </div>
+                                `;
+                                productsContainer.appendChild(productCard);
+                            });
+
+                    const currentCardSize = productsContainer.classList.contains('compact') ? 'compact' : 'standard';
+                    // Apply compact styles for larger screens
+                    if (currentCardSize == 'compact') {
+                        productsContainer.querySelectorAll(".product_images_container").forEach((c)=>{
+                            c.style.height = 80 / 1.5 + 'vh';
+                        })
+                        productsContainer.style.gap = '2%';
+
+                        let products = productsContainer.querySelectorAll('.product_card');
+
+                        products.forEach((product) => {
+                            product.style.width = '23%';
+                        });
+                    }
                         }
 
 
@@ -281,36 +369,46 @@ if (!customElements.get('collection-list-filter')) {
                 // Group products by variant ID
                 const productsByVariant = {};
                 this.products.forEach(product => {
-                    const variantId = product.variant;
+                    let variantId = product.variant;
+                
+                    // If variantId is empty, set it to product title
+                    if (!variantId) {
+                        variantId = product.title;
+                    }
+                
                     if (!productsByVariant[variantId]) {
                         productsByVariant[variantId] = [];
                     }
                     productsByVariant[variantId].push(product);
                 });
 
+               
                 // Create product cards dynamically
                 for (const variantId in productsByVariant) {
                     const variantProducts = productsByVariant[variantId];
-                    const productCard = document.createElement('div');
-                    productCard.classList.add('product_card');
-                    productCard.innerHTML = `
-                        <div class="product_images_container">
-                            <img src="${variantProducts[0].front_image}" alt="" class="top">
-                            <img src="${variantProducts[0].back_image}" alt="" class="bottom">
-                        </div>
-                        ${
-                            variantProducts[0].tags && variantProducts[0].tags.length > 0
-                                ? `<span class="product_badge">${variantProducts[0].tags.map((tag, index) => `<span style="color:${tag.color}; margin-left:${index === 0 ? '0' : '0.42vw'};">${tag.label}</span>`).join('')}</span>`
-                                : ''
-                        }
-                        <a class="product_title" href="${variantProducts[0].url}" style="text-decoration:none;">${variantProducts[0].title}</a>
-                        <div class="bottom_container">
-                            ${variantProducts.map(product => `<a class="color_product" href="${product.url}" style="background-color: ${product.color}"></a>`).join('')}
-                            <span class="see_more">See more</span>
-                            <span class="price_product">${variantProducts[0].price}</span>
-                        </div>
-                    `;
-                    productsContainer.appendChild(productCard);
+                    variantProducts.forEach((product, index) => {
+                        console.log(index)
+                        const productCard = document.createElement('div');
+                        productCard.classList.add('product_card');
+                        productCard.innerHTML = `
+                            <div class="product_images_container">
+                                <img src="${product.front_image}" alt="" class="top">
+                                <img src="${product.back_image}" alt="" class="bottom">
+                            </div>
+                            ${
+                                product.tags && product.tags.length > 0
+                                    ? `<span class="product_badge">${product.tags.map((tag, index) => `<span style="color:${tag.color}; margin-left:${index === 0 ? '0' : '0.42vw'};">${tag.label}</span>`).join('')}</span>`
+                                    : ''
+                            }
+                            <a class="product_title" href="${product.url}" style="text-decoration:none;">${product.title}</a>
+                            <div class="bottom_container">
+                            ${this.productsByVariant[variantId].map(colorProduct => `<a class="color_product" href="${colorProduct.url}" style="background-color: ${colorProduct.color}"></a>`).join('')}
+                                <span class="see_more">See more</span>
+                                <span class="price_product">${product.price}</span>
+                            </div>
+                        `;
+                        productsContainer.appendChild(productCard);
+                    });
                 }
             }
 
