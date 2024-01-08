@@ -153,7 +153,7 @@
     "collectionListFilter": {
       "type": "collection-list-filter-section",
       "settings": {
-        "card_size": "standard",
+        "card_size": "compact",
         "collection_id": "jackets-collection",
         "check_color": false,
         "check_type": false
@@ -166,7 +166,7 @@
         "collection_id": "",
         "image_gift": "shopify:\/\/shop_images\/6341327037.webp",
         "paragraph": "",
-        "color_text": "#FFFFFF",
+        "color_text": "#ffffff",
         "background": "#000000"
       }
     },
