@@ -170,6 +170,52 @@
         "background": "#000000"
       }
     },
+    "badges": {
+      "type": "badges-section",
+      "blocks": {
+        "8ab1def6-139e-4556-9e61-de6115c862b2": {
+          "type": "badge",
+          "settings": {
+            "badge_title_id": "TRY IT FOR  60 NIGHTS",
+            "badge_subtitle_id": "No Strings Attached",
+            "badge_image": "shopify:\/\/shop_images\/clock.png"
+          }
+        },
+        "076094f6-ee56-4573-a211-3afce8eac462": {
+          "type": "badge",
+          "settings": {
+            "badge_title_id": "WE PAY YOUR SHIPPING",
+            "badge_subtitle_id": "$ 9.99 $0 from your first purchase",
+            "badge_image": "shopify:\/\/shop_images\/tree.png"
+          }
+        },
+        "8fe6dbf1-301e-4313-9f7d-145db7162262": {
+          "type": "badge",
+          "settings": {
+            "badge_title_id": "BLOOMY CARE+",
+            "badge_subtitle_id": "Easy Returns & After Sales",
+            "badge_image": "shopify:\/\/shop_images\/gift.png"
+          }
+        },
+        "8a2e6bd0-5cd7-4491-b43b-8ac30e094d7e": {
+          "type": "badge",
+          "settings": {
+            "badge_title_id": "A TREE PLANTED FOR YOUR BLOOMY",
+            "badge_subtitle_id": "With Eden Deforestation Project",
+            "badge_image": "shopify:\/\/shop_images\/clock.png"
+          }
+        }
+      },
+      "block_order": [
+        "8ab1def6-139e-4556-9e61-de6115c862b2",
+        "076094f6-ee56-4573-a211-3afce8eac462",
+        "8fe6dbf1-301e-4313-9f7d-145db7162262",
+        "8a2e6bd0-5cd7-4491-b43b-8ac30e094d7e"
+      ],
+      "settings": {
+        "background": "#ffffff"
+      }
+    },
     "collectionListFilter2": {
       "type": "collection-list-filter-section",
       "settings": {
@@ -217,65 +263,6 @@
         "check_type": false
       }
     },
-    "aboutUsCards": {
-      "type": "about-us-cards-section",
-      "settings": {
-        "title_card_1": "Why Bloomy Silk is the Best Gift for 2024?",
-        "sub_title_1": "Learn how silk transform your hair and skin in just 4 nights!",
-        "background_img_1": "shopify:\/\/shop_images\/about_us_fle.jpg",
-        "button_url_1": "",
-        "title_card_2": "Gift Cards",
-        "sub_title_2": "Save up to 20% when purchasing a gift card",
-        "background_img_2": "shopify:\/\/shop_images\/about_us_fle.jpg",
-        "button_url_2": ""
-      }
-    },
-    "badges": {
-      "type": "badges-section",
-      "blocks": {
-        "8ab1def6-139e-4556-9e61-de6115c862b2": {
-          "type": "badge",
-          "settings": {
-            "badge_title_id": "TRY IT FOR  60 NIGHTS",
-            "badge_subtitle_id": "No Strings Attached",
-            "badge_image": "shopify:\/\/shop_images\/clock.png"
-          }
-        },
-        "076094f6-ee56-4573-a211-3afce8eac462": {
-          "type": "badge",
-          "settings": {
-            "badge_title_id": "WE PAY YOUR SHIPPING",
-            "badge_subtitle_id": "$ 9.99 $0 from your first purchase",
-            "badge_image": "shopify:\/\/shop_images\/tree.png"
-          }
-        },
-        "8fe6dbf1-301e-4313-9f7d-145db7162262": {
-          "type": "badge",
-          "settings": {
-            "badge_title_id": "BLOOMY CARE+",
-            "badge_subtitle_id": "Easy Returns & After Sales",
-            "badge_image": "shopify:\/\/shop_images\/gift.png"
-          }
-        },
-        "8a2e6bd0-5cd7-4491-b43b-8ac30e094d7e": {
-          "type": "badge",
-          "settings": {
-            "badge_title_id": "A TREE PLANTED FOR YOUR BLOOMY",
-            "badge_subtitle_id": "With Eden Deforestation Project",
-            "badge_image": "shopify:\/\/shop_images\/clock.png"
-          }
-        }
-      },
-      "block_order": [
-        "8ab1def6-139e-4556-9e61-de6115c862b2",
-        "076094f6-ee56-4573-a211-3afce8eac462",
-        "8fe6dbf1-301e-4313-9f7d-145db7162262",
-        "8a2e6bd0-5cd7-4491-b43b-8ac30e094d7e"
-      ],
-      "settings": {
-        "background": "#ffffff"
-      }
-    },
     "giftCard": {
       "type": "gift-card-section",
       "settings": {
@@ -285,6 +272,19 @@
         "paragraph": "<p><strong>Silk Comes from mother nature, so we make sure to pay back &lt;3!<\/strong><\/p><p>For every Bloomy, we'll plant a tree in partnership with the Eden Deforestation Project. Applies to all our selection including gift cards.<\/p>",
         "color_text": "#ffffff",
         "background": "#000000"
+      }
+    },
+    "aboutUsCards": {
+      "type": "about-us-cards-section",
+      "settings": {
+        "title_card_1": "Learn why silk is the best gift for 2024?",
+        "sub_title_1": "Learn how silk transform your hair and skin in just 4 nights!",
+        "background_img_1": "shopify:\/\/shop_images\/about_us_fle.jpg",
+        "button_url_1": "",
+        "title_card_2": "Save up to 20% on Gift Cards",
+        "sub_title_2": "Save up to 20% when purchasing a gift card",
+        "background_img_2": "shopify:\/\/shop_images\/about_us_fle.jpg",
+        "button_url_2": ""
       }
     },
     "blogCard": {
@@ -305,14 +305,14 @@
     "collection-scroll",
     "collectionListFilter",
     "giftCardReverse",
+    "badges",
     "collectionListFilter2",
     "72b0da0f-2115-4fbe-a044-bd2b3c95fd58",
     "43074846-d6ce-4213-9b80-730bd247ac1e",
     "f0c24e34-a493-412e-b756-9d190ef7a3c3",
     "collectionListFilter3",
-    "aboutUsCards",
-    "badges",
     "giftCard",
+    "aboutUsCards",
     "blogCard"
   ]
 }
