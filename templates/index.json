@@ -179,15 +179,6 @@
         "check_type": false
       }
     },
-    "collectionListFilter3": {
-      "type": "collection-list-filter-section",
-      "settings": {
-        "card_size": "compact",
-        "collection_id": "silk-pillowcases",
-        "check_color": false,
-        "check_type": false
-      }
-    },
     "72b0da0f-2115-4fbe-a044-bd2b3c95fd58": {
       "type": "collection-list-filter-section",
       "settings": {
@@ -195,6 +186,15 @@
         "collection_id": "sleep-masks",
         "check_color": false,
         "check_type": true
+      }
+    },
+    "collectionListFilter3": {
+      "type": "collection-list-filter-section",
+      "settings": {
+        "card_size": "compact",
+        "collection_id": "turbans",
+        "check_color": false,
+        "check_type": false
       }
     },
     "giftCardReverse": {
@@ -297,8 +297,8 @@
     "collectionListFilter",
     "43074846-d6ce-4213-9b80-730bd247ac1e",
     "collectionListFilter2",
-    "collectionListFilter3",
     "72b0da0f-2115-4fbe-a044-bd2b3c95fd58",
+    "collectionListFilter3",
     "giftCardReverse",
     "badges",
     "giftCard",
