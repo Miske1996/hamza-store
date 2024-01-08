@@ -8,17 +8,10 @@
           "settings": {
             "hero_btn": "jackets-collection"
           }
-        },
-        "80b1c613-96a5-4bfa-a67c-2dd912940455": {
-          "type": "heroButton",
-          "settings": {
-            "hero_btn": "kids"
-          }
         }
       },
       "block_order": [
-        "0fbdae27-20e5-4536-9dfe-5b69d9f3b960",
-        "80b1c613-96a5-4bfa-a67c-2dd912940455"
+        "0fbdae27-20e5-4536-9dfe-5b69d9f3b960"
       ],
       "settings": {
         "title_hero": "Christmas in down jackets",
