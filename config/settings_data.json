@@ -13,7 +13,7 @@
         "type": "header-section",
         "settings": {
           "header_type": "fixed",
-          "background": "#d70000",
+          "background": "#ffffff",
           "logo": "shopify:\/\/shop_images\/medium_ANmrhpasAl.png",
           "left_nav": "left_menu",
           "right_nav": "right_menu"
